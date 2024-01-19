@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import COLORS from '../../constants/colors';
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState(1);
 
   const array = [
     {
