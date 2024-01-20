@@ -43,7 +43,7 @@ export default function HomePageTrail() {
       <div className="gradient" ref={slider}>
         <div className="description panel">
           <div style={{ position: "relative" }}>
-            <img src={RoadImage} alt="road" height={window.innerHeight} style={{ objectFit: "cover" }} />
+            {/* <img src={RoadImage} alt="road" height={window.innerHeight} style={{ objectFit: "cover" }} /> */}
           </div>
           <div style={{ paddingLeft: 90,position:'absolute',top:0}}>
               <img height={116} width={91} src={Logo} />
