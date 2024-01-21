@@ -4,7 +4,7 @@ const Typography = {
     headingL: {
         fontSize: 60,
         fontWeight: 300,
-        lineHeight: 'normal',
+        // lineHeight: 'normal',
         letterSpacing: -3,
         color:COLORS.carbon
     },

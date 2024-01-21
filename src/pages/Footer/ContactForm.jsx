@@ -44,7 +44,7 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between',alignItems:'center' }}>
           <div style={{ marginBottom: 24, marginRight: 0 }}>
             <label htmlFor="firstName" style={Typography.bodyM}>First Name</label>
             <input

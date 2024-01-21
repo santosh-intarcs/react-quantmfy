@@ -24,7 +24,6 @@ const Footer = () => {
           alignItems: 'center',
           flexDirection: 'row',
         }}>
-
           <div style={{ maxWidth: '40%', marginRight: 20 }}>
             <p style={{ ...Typography.label }}>Let's connect</p>
             <p style={{ ...Typography.headingS, marginBottom: 40 }}>Contact us today to learn how to put QuantmFy to work for you.</p>

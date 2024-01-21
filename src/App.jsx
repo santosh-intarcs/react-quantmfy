@@ -1,14 +1,17 @@
+import React from 'react';
 import './App.css'
-import AppDevelopmentPage from './pages/AppDevelopment/AppDevelopment'
-import HomePageTrail from './pages/HomePage/HomeTrail'
+import {
+  RouterProvider,
+} from "react-router-dom";
+import { BroswerRoute } from './components/Navigation/Router';
 
 function App() {
 
   return (
-    <div>
-      {/* <HomePageTrail /> */}
-      <AppDevelopmentPage />
-    </div>
+    <React.StrictMode>
+    <RouterProvider router={BroswerRoute} />
+  </React.StrictMode>
+    
   )
 }
 

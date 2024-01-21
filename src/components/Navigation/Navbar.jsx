@@ -40,6 +40,7 @@ const Navbar = () => {
               style={{
                 paddingLeft: 40,
                 paddingRight: 40,
+                marginTop:12,
                 color: 'black',
                 cursor: 'pointer',
               }}

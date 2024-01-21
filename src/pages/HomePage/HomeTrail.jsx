@@ -12,10 +12,17 @@ import Logo from "../../assets/QuantmFy-logo.svg";
 import COLORS from "../../constants/colors";
 import "./HomePage.css";
 import Navbar from "../../components/Navigation/Navbar";
+import Typography from "../../constants/textStyle";
+import Footer from '../Footer/Footer'
+import { useState } from "react";
+import OffCanvasMenu from "../../components/OffCanvasMenu";
+import MenuIcon from "../../assets/Hamburger Menu Icon.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HomePageTrail() {
+  const [isHamburgerOpen, setHamburgerOpenState] = useState(false);
+
   const component = useRef();
   const slider = useRef();
 
@@ -29,56 +36,51 @@ export default function HomePageTrail() {
           trigger: slider.current,
           pin: true,
           scrub: 1,
-          // snap: 1 / (panels.length - 1),
+          // Ensure that the end point considers the total width of the slider
           end: () => "+=" + slider.current.offsetWidth - window.innerWidth,
-          markers: false,
+          markers: true, // Enable markers for debugging
+  
         },
       });
     }, component);
     return () => ctx.revert();
   });
 
+  const clickHamburgerMenu = () => {
+    setHamburgerOpenState(!isHamburgerOpen);
+  };
+
+  const closeHamburgerMenu = () => {
+    setHamburgerOpenState(false);
+  };
+
   return (
     <div className="App" ref={component}>
       <div className="gradient" ref={slider}>
-        <div className="description panel">
-          <div style={{ position: "relative" }}>
-            {/* <img src={RoadImage} alt="road" height={window.innerHeight} style={{ objectFit: "cover" }} /> */}
-          </div>
-          <div style={{ paddingLeft: 90,position:'absolute',top:0}}>
+        <div className="panel">
+          <div style={{
+            backgroundImage: `url(${RoadImage})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            height: '100vh',
+            width: 'auto',
+          }}>
+            <div style={{ paddingLeft: 90, top: 0 }}
+            >
               <img height={116} width={91} src={Logo} />
-            <div style={{maxWidth:'48%'}}>
-              <p style={{ fontSize: 48, fontWeight: 300, margin: 0,marginTop:24, letterSpacing: -3,lineHeight:'normal'}}>The go-to technology partner for spirited startups to corporate heavyweights.</p>
-              <p style={{ marginTop: 24, marginBottom: 24, fontSize: 16, fontWeight: 400 }}>We offer white-glove service driving high-quality, custom technology solutions that solve your unique challenges.</p>
-              <button style={{ backgroundColor: COLORS.carbon, padding: 10, color: COLORS.white, borderRadius: 4, border: "none", textTransform: 'uppercase', fontSize: 14, fontWeight: 600, minHeight: 44,marginBottom:30 }}>EXPLORE QUANTMFY CITY</button>
-              <Navbar />
+              <div style={{ maxWidth: '48%' }}>
+                <p style={{ fontSize: 48, fontWeight: 300, margin: 0, marginTop: 24, letterSpacing: -3, lineHeight: 'normal' }}>The go-to technology partner for spirited startups to corporate heavyweights.</p>
+                <p style={{ marginTop: 24, marginBottom: 24, fontSize: 16, fontWeight: 400 }}>We offer white-glove service driving high-quality, custom technology solutions that solve your unique challenges.</p>
+                <button style={{ backgroundColor: COLORS.carbon, padding: 10, color: COLORS.white, borderRadius: 4, border: "none", textTransform: 'uppercase', fontSize: 14, fontWeight: 600, minHeight: 44, marginBottom: 30 }}>EXPLORE QUANTMFY CITY</button>
+              </div>
             </div>
           </div>
-          <div style={{ position: "absolute", top: '-6%', left: '66%', zIndex: 1 }}>
-            <object width={400} height={534} type="image/svg+xml" data={HeroImage1} aria-hidden alt="animi-1" />
-          </div>
-          <div style={{ position: "absolute", bottom: 0, left: '85%', zIndex: 1 }}>
-            <img height={120} type="image/svg+xml" src={BuildingImage1} aria-hidden alt="animi-1" />
-          </div>
-          <div style={{ position: "absolute", bottom: '16%', left: '100%', zIndex: 1 }}>
-            <img width={205} type="image/svg+xml" src={BuildingImage2} aria-hidden alt="animi-1" />
-          </div>
-          <div style={{ position: "absolute", top: '-12%', left: '103%', zIndex: 1 }}>
-            <img width={250} height={204} type="image/svg+xml" src={BuildingImage3} aria-hidden alt="animi-1" />
-          </div>
-          <div style={{ position: "absolute", top: '-4%', left: '120%', zIndex: 1 }}>
-            <img width={300} height={174} type="image/svg+xml" src={BuildingImage4} aria-hidden alt="animi-1" />
-          </div>
-          <div style={{ position: "absolute", bottom: '16%', left: '128%', zIndex: 1 }}>
-            <object width={500} height={350} type="image/svg+xml" data={AppDev} aria-hidden alt="animi-1" />
-          </div>
         </div>
-        
         <div className="panel">
+          <Footer />
         </div>
-        <div className="panel"></div>
-        <div className="panel"></div>
       </div>
+      <OffCanvasMenu isMenuOpen={isHamburgerOpen} closeHamburgerMenu={closeHamburgerMenu} />
     </div>
   );
 }
