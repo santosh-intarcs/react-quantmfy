@@ -11,7 +11,7 @@ const InputStyle = {
 }
 
 const ContainerStyle = {
-  marginBottom: 24,
+  marginBottom: 12,
   display: 'flex',
   flexDirection: 'column',
 
@@ -42,67 +42,69 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between',alignItems:'center' }}>
-          <div style={{ marginBottom: 24, marginRight: 0 }}>
-            <label htmlFor="firstName" style={Typography.bodyM}>First Name</label>
+    <div style={{maxHeight:'54vh',maxWidth:440}}>
+      <form onSubmit={handleSubmit} >
+        <div style={{ display: 'flex', flexDirection: 'column', }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ marginBottom: 12, marginRight: 0 }}>
+              <label htmlFor="firstName" style={Typography.bodyM}>First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                style={InputStyle}
+              />
+            </div>
+            <div style={ContainerStyle}>
+              <label htmlFor="lastName" style={Typography.bodyM}>Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                style={InputStyle}
+              />
+            </div>
+          </div>
+          <div style={ContainerStyle}>
+            <label style={Typography.bodyM} htmlFor="email" >Email</label>
             <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
               style={InputStyle}
             />
           </div>
           <div style={ContainerStyle}>
-            <label htmlFor="lastName" style={Typography.bodyM}>Last Name</label>
+            <label htmlFor="organizationName" style={Typography.bodyM}>Organisation Name</label>
             <input
               type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
+              id="organizationName"
+              name="organizationName"
+              value={formData.organizationName}
               onChange={handleChange}
               style={InputStyle}
             />
           </div>
+          <div style={ContainerStyle}>
+            <label htmlFor="comments" style={Typography.bodyM}>Comments</label>
+            <textarea
+              id="comments"
+              name="Comment (optional)"
+              value={formData.comments}
+              onChange={handleChange}
+              style={InputStyle}
+            />
+          </div>
+          <button style={{ alignSelf: 'end', width: '25%', backgroundColor: COLORS.carbon, padding: 10, color: COLORS.white, borderRadius: 4, border: "none", textTransform: 'uppercase', fontSize: 14, fontWeight: 600, minHeight: 44, marginBottom: 30 }}>Submit</button>
         </div>
-        <div style={ContainerStyle}>
-          <label style={Typography.bodyM} htmlFor="email" >Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            style={InputStyle}
-          />
-        </div>
-        <div style={ContainerStyle}>
-          <label htmlFor="organizationName" style={Typography.bodyM}>Organisation Name</label>
-          <input
-            type="text"
-            id="organizationName"
-            name="organizationName"
-            value={formData.organizationName}
-            onChange={handleChange}
-            style={InputStyle}
-          />
-        </div>
-        <div style={ContainerStyle}>
-          <label htmlFor="comments" style={Typography.bodyM}>Comments</label>
-          <textarea
-            id="comments"
-            name="Comment (optional)"
-            value={formData.comments}
-            onChange={handleChange}
-            style={InputStyle}
-          />
-        </div>
-        <button style={{ alignSelf:'end', width:'25%', backgroundColor: COLORS.carbon, padding: 10, color: COLORS.white, borderRadius: 4, border: "none", textTransform: 'uppercase', fontSize: 14, fontWeight: 600, minHeight: 44, marginBottom: 30 }}>Submit</button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

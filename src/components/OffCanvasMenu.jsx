@@ -53,7 +53,6 @@ const OffCanvasMenu = ({
     scrollTop();
     closeHamburgerMenu();
   }
-console.log('called >>>>>>>>>>>>>>>')
   return (
     <Fragment>
       <OffCanvasMenuWrapper open={isMenuOpen}>

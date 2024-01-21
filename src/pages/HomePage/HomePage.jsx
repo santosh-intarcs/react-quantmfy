@@ -198,7 +198,7 @@ export default function HomePage() {
         </div>
         <div className="panel"></div>
         <div className="panel"></div>
-        <div className="panel"></div>
+        <div className="panel" style={{width:'80%'}}></div>
       </div>
       <OffCanvasMenu isMenuOpen={isHamburgerOpen} closeHamburgerMenu={closeHamburgerMenu} />
 
