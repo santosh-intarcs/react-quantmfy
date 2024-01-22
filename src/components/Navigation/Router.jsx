@@ -4,6 +4,7 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import HomePage from "../../pages/HomePage/HomePage";
+import AnimateTest from "../AnimateTest";
 
 export const BroswerRoute = createBrowserRouter([
     {
@@ -17,6 +18,5 @@ export const BroswerRoute = createBrowserRouter([
     {
         path:'/techno-consultant',
         element: <TechnologyConsultantPage />
-
-    }
+    },
 ]);

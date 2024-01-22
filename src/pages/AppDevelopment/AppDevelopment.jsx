@@ -18,6 +18,8 @@ import Footer from "../Footer/Footer";
 import NavbarVertical from "../../components/Navigation/NavbarVertical";
 import { useRef } from "react";
 import SectionButton from "../../components/SectionButton";
+import { AppDevelopmentWrapper, ImageWrapperStyle } from "./AppDevelopment.styles";
+import { BodyS, HeadingL, HeadingS, Label } from "../../constants/TypographyStyles";
 
 
 const NavItems = [
@@ -62,19 +64,19 @@ const LabelText = ({ label }) => {
       width: 'fit-content',
     }}>
       <img src={Checkicon} width={18} />
-      <p style={{ ...Typography.label, marginLeft: 10, textAlign: 'center' }}>{label}</p>
+      <Label style={{ marginLeft: 10, textAlign: 'center' }}>{label}</Label>
     </div>
   );
 };
 
 const ImageWrapper = ({ image, title }) => {
   return (
-    <div style={{ marginRight: 24 }}>
-      <div style={{ marginBottom: 8 }}>
+    <ImageWrapperStyle>
+      <div className="image-container">
         <img src={image} width={175} alt={title} />
       </div>
       <p style={{ ...Typography.label, textAlign: 'center', color: COLORS.white }}>{title}</p>
-    </div>
+    </ImageWrapperStyle>
   );
 };
 
@@ -96,7 +98,6 @@ const AppDevelopmentPage = () => {
       const offsetTop = sectionRef.current.offsetTop;
       window.scrollTo({ top: offsetTop, behavior: 'smooth' });
     }
-
   };
 
   useEffect(() => {
@@ -131,40 +132,40 @@ const AppDevelopmentPage = () => {
   }, []);
 
   return (
-    <Fragment>
-      <SectionButton />
+    <AppDevelopmentWrapper>
+      <div style={{
+        display: 'none',
+        '@media (min-width: 768px)': {
+          display: 'block',
+        }
+      }}>
+        <SectionButton />
+      </div>
       <div style={{
         position: 'fixed',
         right: '4%',
         top: '30%',
-
+        display: 'block',
+        '@media (min-width: 768px)': {
+          display: 'none',
+        },
       }}>
         <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />
       </div>
-      <div style={{
-        background: 'linear-gradient(180deg, #9186C9 0%, #DCE3EC 61.46%)',
-        padding: 0,
-        margin: 0,
-      }}>
+      <div className="gradient">
         <section>
-          <div style={{
-            backgroundImage: `url(${HeroImage})`,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            height: '100vh',
-            paddingLeft: 130,
-            paddingRight: 130,
-          }}>
+          <div className="section1">
             <div>
-              <img src={QFLogo} height={100} />
+              <img src={QFLogo} className="qf-logo" />
             </div>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div className="para" style={{ maxWidth: '80%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                  <p style={Typography.headingM}>Overcome your business challenges with reliable, custom software applications</p>
+              <div className="section1-container">
+                <div className="section1-content">
+                  <HeadingL>
+                    Overcome your business challenges with reliable, custom software applications
+                  </HeadingL>
                   <div style={{ marginTop: 40 }}>
-                    <object data={AppDev} width={420} />
+                    <object data={AppDev} className="section1-image" />
                   </div>
                 </div>
               </div>
@@ -172,18 +173,10 @@ const AppDevelopmentPage = () => {
           </div>
         </section>
         <section id="challenges-section" ref={sectionRefs[1]}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-            maxWidth: '80%',
-            paddingLeft: 130,
-            marginTop: 120
-          }}>
+          <div className="section2">
             <div>
-              <p style={{ ...Typography.headingS, marginBottom: 16 }}>If you're facing a technology challenge and don't have the in-house resources to solve it, QuantmFy is here to help.</p>
-              <p style={{ ...Typography.bodyS, marginBottom: 16 }}>Our custom software development services help companies of every size realize a range of impactful business outcomes like</p>
+              <HeadingS className="mb-16">If you're facing a technology challenge and don't have the in-house resources to solve it, QuantmFy is here to help.</HeadingS>
+              <BodyS  className="mb-16">Our custom software development services help companies of every size realize a range of impactful business outcomes like</BodyS>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <LabelText label={'Drive more revenue'} />
                 <LabelText label={'Reduce operational costs'} />
@@ -194,87 +187,47 @@ const AppDevelopmentPage = () => {
               </div>
             </div>
             <div>
-              <img src={ChallengeSvg} width={380} />
+              <img src={ChallengeSvg} className="section2-image" />
             </div>
-            {/* <SectionButton /> */}
           </div>
-
         </section>
       </div>
-
       <section id="team-section" ref={sectionRefs[2]}>
-        {/* ... rest of your code */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'row',
-          // maxWidth: '80%',
-          backgroundColor: COLORS.green,
-          paddingTop: 120,
-          paddingBottom: 120
-        }}>
-          <div style={{ maxWidth: '50%' }}>
-            <p style={{ ...Typography.headingS, marginBottom: 16, textAlign: 'center', color: COLORS.white }}>Experienced Application Strategists and Developers</p>
-            <p style={{ ...Typography.bodyS, marginBottom: 16, textAlign: 'center', color: COLORS.white }}>Our experienced application development teams and strategists are committed to helping you overcome your unique business challenges in an efficient and cost-effective manner.</p>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="section3">
+          <div className="section3-container">
+            <HeadingS className="section3-heading" style={{ marginBottom: 16, color: COLORS.white }}>Experienced Application Strategists and Developers</HeadingS>
+            <BodyS className="section3-heading" style={{  marginBottom: 16, color: COLORS.white }}>Our experienced application development teams and strategists are committed to helping you overcome your unique business challenges in an efficient and cost-effective manner.</BodyS>
+            <div className="section3-image-container">
               <ImageWrapper image={Strategy} title='Strategy' />
               <ImageWrapper image={Idea} title='Idea validation' />
-              <ImageWrapper image={CustomAppDev} title='custom application development' />
-              <ImageWrapper image={CustomCloud} title='Custom software solution for cloud' />
-              <ImageWrapper image={DesktopWeb} title='Desktop, web and Mobile' />
+              <ImageWrapper image={CustomAppDev} title='custom application' />
+              <ImageWrapper image={CustomCloud} title='Custom software ' />
+              <ImageWrapper image={DesktopWeb} title='Web and mobile' />
 
             </div>
           </div>
         </div>
       </section>
       <section id="solution-section" ref={sectionRefs[3]}>
-        <div style={{
-          backgroundImage: `url(${SolutionsBg})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          height: '100vh',
-          width: '100vw',
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-            maxWidth: '80%',
-            paddingLeft: 130,
-            marginTop: 120
-          }}>
-            <div style={{ maxWidth: '40%', marginRight: 20 }}>
-              <p style={{ ...Typography.label, marginBottom: 16 }}>Our Solutions</p>
-              <p style={{ ...Typography.headingS, marginBottom: 16 }}>Industry-specific platforms and portals to modernize delivery of services to customers and open new markets.</p>
+        <div className="section4">
+          <div className="section4-container">
+            <div className="section4-left-container">
+              <Label style={{ marginBottom: 16 }}>Our Solutions</Label>
+              <HeadingS style={{  marginBottom: 16 }}>Industry-specific platforms and portals to modernize delivery of services to customers and open new markets.</HeadingS>
             </div>
             <div>
-              <img src={Industryspecific} width={600} />
+              <img src={Industryspecific} className="section4-image" />
             </div>
           </div>
         </div>
       </section>
       <section id="deep-dive-section" ref={sectionRefs[4]}>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'row',
-          background: 'linear-gradient(180deg, #9186C9 -28.99%, #DCE3EC 50.29%)',
-          paddingTop: 80,
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-          }}>
+        <div className="section5">
+          <div className="section5-container">
             <div>
-              <img src={SysIntegration} width={450} objectFit={'cover'} />
+              <img src={SysIntegration} className="section5-image" objectFit={'cover'} />
             </div>
-            <div style={{ maxWidth: '30%', marginLeft: 20 }}>
+            <div className="section5-inner-container">
               <p style={{ ...Typography.label, marginBottom: 16 }}>Deep dive</p>
               <p style={{ ...Typography.headingS, marginBottom: 16 }}>System Integration Services</p>
               <p style={{ ...Typography.bodyS, marginBottom: 16 }}>Our team of experienced developers help you seamlessly connect your systems and applications with one another and with third-party platforms and applications.<br /><br />
@@ -284,9 +237,9 @@ const AppDevelopmentPage = () => {
         </div>
       </section>
       <section id="contact-section" ref={sectionRefs[5]}>
-        <Footer />
+        {/* <Footer /> */}
       </section>
-    </Fragment>
+    </AppDevelopmentWrapper>
   );
 };
 
