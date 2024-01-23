@@ -1,8 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import QFLogo from '../../assets/QuantmFy-logo.svg';
 import AppDev from "../../assets/appdev.svg"
 import Footer from "../Footer/Footer";
-import ExperiencedConsultant from '../../assets/TechnoConsulting/Experienced-Consultants.svg';
 import NavbarVertical from "../../components/Navigation/NavbarVertical";
 import SectionButton from "../../components/SectionButton";
 import { useState } from "react";
@@ -11,18 +10,29 @@ import { useEffect } from "react";
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import TechStrategy from '../../assets/TechnoConsulting/Technology-Strategy.svg';
-import { BodyS, BodySbold, HeadingM, HeadingS, HeadingXs, Label } from "../../constants/TypographyStyles";
-import { TechnoConsultingWrapper } from "./Technoconsulting.styles";
+import { BodyM, BodyS, BodySbold, HeadingM, HeadingS, Label } from "../../constants/TypographyStyles";
+import { ItStaffingWrapper, PillsWrapper } from "./ItStaffingWrapper";
+import SkillImage from '../../assets/ItStaffing/Skill.svg';
+import COLORS from "../../constants/colors";
+
+
+const Pills = ({ label }) => {
+  return (
+    <PillsWrapper>
+      <Label>{label}</Label>
+    </PillsWrapper>
+  );
+}
 
 
 const NavItems = [
   {
-    label: 'Strategy',
+    label: 'Staffing',
     id: 1,
     sectionId: 'strategy-section',
   },
   {
-    label: 'how we help',
+    label: 'Our Approach',
     id: 2,
     sectionId: 'how-we-help-section',
   },
@@ -35,7 +45,7 @@ const NavItems = [
 
 
 
-const TechnologyConsultantPage = () => {
+const ItemStaffing = () => {
   const [activeItem, setActiveItem] = useState(1);
   const titleTextRef = useRef(null);
   const sectionRefs = NavItems.reduce((acc, item) => {
@@ -96,21 +106,21 @@ const TechnologyConsultantPage = () => {
   }, []);
 
   return (
-    <TechnoConsultingWrapper>
+    <ItStaffingWrapper>
       <SectionButton />
       <div style={{
-       position: 'fixed',
-       right: '4%',
-       top: '30%',
-       display: 'block',
-       '@media (max-width: 767px)': {
-         display: 'none',
-       },
+        position: 'fixed',
+        right: '4%',
+        top: '30%',
+        display: 'none',
+        '@media (max-width: 650px)': {
+          display: 'block',
+        },
       }}>
         <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />
       </div>
       <div style={{
-        background: 'linear-gradient(360deg, #F4F9DD 53.58%, #669085 119.27%)',
+        background: 'linear-gradient(180deg, rgba(145, 134, 201, 0.17) 0%, #5376A3 100%)',
         padding: 0,
         margin: 0,
       }}>
@@ -122,7 +132,7 @@ const TechnologyConsultantPage = () => {
             <div>
               <div className="section1-container">
                 <div className="section1-inner-container">
-                  <HeadingM ref={titleTextRef}>Strategic technology advice to help you grow your business</HeadingM>
+                  <HeadingM ref={titleTextRef}>Strengthen your technology operations and scale faster</HeadingM>
                   <div style={{ marginTop: 40 }}>
                     <object data={AppDev} className="section1-image" />
                   </div>
@@ -135,17 +145,33 @@ const TechnologyConsultantPage = () => {
         <section id="strategy-section" ref={sectionRefs[1]}>
           <div className="section2">
             <div className="section2-inner-container">
-              <div className=".section2-left-container">
-
-                <HeadingS className="section2-title">We understand the importance of developing a technology strategy that aligns with your business goals and delivers tangible value to your organization.</HeadingS>
+              <div className="section3-title-container" style={{ maxWidth: '60%', alignItems: 'flex-start' }}>
+                <HeadingS style={{ textAlign: 'left' }} className="section2-title">QuantmFy is the go-to resource when your business needs additional technical resources to bolster your technology operations.</HeadingS>
+                <BodyM style={{ textAlign: 'left' }}>Our IT Staffing Services are designed to be extremely flexible and responsive, to give you an efficient and effective way to add specialized staff members to your team on a short-term or long-term basis.</BodyM>
               </div>
-              <div className="section2-right-container">
-                <div className="section2-bg-image">
-                  <img src={ExperiencedConsultant} />
+              <div className="section2-inner">
+                <div className="section2-left-container">
+                  <Label>With our flexible IT staffing services, you can:</Label>
+                  <img src={SkillImage} />
+                  <BodyS>Acquire skilled team members when you need them – for any timeframe.</BodyS>
                 </div>
-                <div className="section2-text-container">
-                  <HeadingXs className="mb-16">Experienced consultants</HeadingXs>
-                  <BodyS>Our experienced, senior-level technology consultants provide strategic advisory services to help your leadership teams define long-term technology strategies and solutions that propel your business forward.</BodyS>
+                <div className="section2-right-container">
+                  <Label>Add team members with expertise in a range of areas:</Label>
+                  <div style={{ display: 'flex', justifyContent: "start", flexWrap: 'wrap' }}>
+                    <Pills label='DevOps' />
+                    <Pills label='Architecture' />
+                    <Pills label='Artificial intelligence' />
+                    <Pills label='Data science' />
+                    <Pills label='IT operations' />
+                    <Pills label='Application modernization' />
+                    <Pills label='Internet of things' />
+                    <Pills label='Identity & access management' />
+                    <Pills label='Software engineering' />
+                    <Pills label='Mobile applications' />
+                    <Pills label='Cloud computing' />
+                    <Pills label='Artificial intelligence' />
+                    <Pills label='Content management systems' />
+                  </div>
                 </div>
               </div>
             </div>
@@ -157,14 +183,12 @@ const TechnologyConsultantPage = () => {
         <div className="section3">
           <div className="section3-inner-container">
             <div className="section3-left-container">
-              <Label className="mb-16">Here’s how we can help</Label>
-              <HeadingS className="mb-16">Technology strategy</HeadingS>
-              <BodySbold className="mb-16">Our technology strategists help you identify and implement the most effective technology solutions to meet your business’s unique needs.</BodySbold>
-              <bodyS className="mb-16">Our experienced consultants work closely with your team to create a comprehensive technology strategy that aligns with your business goals and objectives. We provide expert guidance on technology trends and best practices, enabling you to make informed decisions and achieve long-term success.</bodyS>
+              <Label style={{color:COLORS.white}} className="mb-16">Here’s our approach</Label>
+              <HeadingS style={{color:COLORS.white}} className="mb-16">1. Identify your staffing requirements, including skills, knowledge, experience and character.</HeadingS>
             </div>
             <div className="section3-right-container">
               <div className="section3-image">
-                <img src={TechStrategy} width={420} />
+                <img src={TechStrategy} />
               </div>
             </div>
           </div>
@@ -174,8 +198,8 @@ const TechnologyConsultantPage = () => {
       <section id="contact-section" ref={sectionRefs[3]}>
         <Footer />
       </section>
-    </TechnoConsultingWrapper >
+    </ItStaffingWrapper>
   )
 }
 
-export default TechnologyConsultantPage;
+export default ItemStaffing;

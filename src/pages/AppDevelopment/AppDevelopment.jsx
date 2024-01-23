@@ -145,9 +145,9 @@ const AppDevelopmentPage = () => {
         position: 'fixed',
         right: '4%',
         top: '30%',
-        display: 'none',
-        '@media (min-width: 768px)': {
-          display: 'block',
+        display: 'block',
+        '@media (max-width: 767px)': {
+          display: 'none',
         },
       }}>
         <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />
@@ -176,7 +176,7 @@ const AppDevelopmentPage = () => {
           <div className="section2">
             <div>
               <HeadingS className="mb-16">If you're facing a technology challenge and don't have the in-house resources to solve it, QuantmFy is here to help.</HeadingS>
-              <BodyS  className="mb-16">Our custom software development services help companies of every size realize a range of impactful business outcomes like</BodyS>
+              <BodyS className="mb-16">Our custom software development services help companies of every size realize a range of impactful business outcomes like</BodyS>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <LabelText label={'Drive more revenue'} />
                 <LabelText label={'Reduce operational costs'} />
@@ -196,7 +196,7 @@ const AppDevelopmentPage = () => {
         <div className="section3">
           <div className="section3-container">
             <HeadingS className="section3-heading" style={{ marginBottom: 16, color: COLORS.white }}>Experienced Application Strategists and Developers</HeadingS>
-            <BodyS className="section3-heading" style={{  marginBottom: 16, color: COLORS.white }}>Our experienced application development teams and strategists are committed to helping you overcome your unique business challenges in an efficient and cost-effective manner.</BodyS>
+            <BodyS className="section3-heading" style={{ marginBottom: 16, color: COLORS.white }}>Our experienced application development teams and strategists are committed to helping you overcome your unique business challenges in an efficient and cost-effective manner.</BodyS>
             <div className="section3-image-container">
               <ImageWrapper image={Strategy} title='Strategy' />
               <ImageWrapper image={Idea} title='Idea validation' />
@@ -213,7 +213,7 @@ const AppDevelopmentPage = () => {
           <div className="section4-container">
             <div className="section4-left-container">
               <Label style={{ marginBottom: 16 }}>Our Solutions</Label>
-              <HeadingS style={{  marginBottom: 16 }}>Industry-specific platforms and portals to modernize delivery of services to customers and open new markets.</HeadingS>
+              <HeadingS style={{ marginBottom: 16 }}>Industry-specific platforms and portals to modernize delivery of services to customers and open new markets.</HeadingS>
             </div>
             <div>
               <img src={Industryspecific} className="section4-image" />

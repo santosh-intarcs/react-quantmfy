@@ -8,6 +8,7 @@ const COLORS = {
     logoViolet:"#9b9beb",
     green: "#669085",
     blue: "#5376A3",
+    lightViolet:'#E5E3F2',
 }
 
 export default COLORS;

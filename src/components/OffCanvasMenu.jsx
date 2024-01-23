@@ -8,16 +8,20 @@ import COLORS from '../constants/colors';
 import Contact from '../assets/Contact.svg';
 import Close from "../assets/Close.svg";
 import { Link } from 'react-router-dom';
+import { ListingWrapper, OffCanvasMenuStyleWrapper } from './OffCanvasMenu.style';
+import { HeadingS, Label } from '../constants/TypographyStyles';
 
 
 const ServiceListing = ({ title, path }) => {
   return (
+    <ListingWrapper>
     <Link to={path ? path : '/'} style={{textDecoration:'none'}}>
       <div style={{ marginBottom: 32, display: 'flex' }}>
         <p style={{ ...Typography.headingS, color: COLORS.white }}>{title}</p>
         <img src={LinkArrow} style={{ marginLeft: 10 }} width={36} />
       </div>
     </Link>
+    </ListingWrapper>
   )
 }
 
@@ -54,92 +58,44 @@ const OffCanvasMenu = ({
     closeHamburgerMenu();
   }
   return (
-    <Fragment>
+    <OffCanvasMenuStyleWrapper>
       <OffCanvasMenuWrapper open={isMenuOpen}>
-        <div style={{ display: 'flex' }}>
-          <div style={{
-            backgroundColor: COLORS.carbon,
-            width: '50%',
-            minHeight: '100vh',
-            paddingLeft: 112,
-            display: 'flex',
-            flexDirection: 'column',
-          }}>
-            <img src={Logo} width={64} height={102} />
+        <div className='menu-container'>
+          <div className='logo-container'>
+            <img src={Logo} className='logo' />
             <div style={{ width: '100%' }}>
               <p style={{ ...Typography.label, marginBottom: 32 }}>discover our services</p>
               <ServiceListing title='Application development' path="/app-development" />
               <ServiceListing title='IT Consultant' path='/techno-consultant' />
-              <ServiceListing title='IT Staffing' path='' />
+              <ServiceListing title='IT Staffing' path='/it-staffing' />
               <ServiceListing title='Data Analytics'  path='' />
               <ServiceListing title='Web development' path='' />
               <ServiceListing title='Technology Toolkit' path='' />
               <ServiceListing title='CTO-as-a-Service' path='' />
             </div>
           </div>
-          <div style={{
-            background: 'linear-gradient(180deg, #F4F9DD 0%, #E7D7DD 100%)',
-            minWidth: '50%',
-            minHeight: '100vh',
-            paddingLeft: 112,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}> {/* Set width to 100% */}
-              <button style={{
-                backgroundColor: 'transparent',
-                padding: 16,
-                color: COLORS.carbon,
-                borderRadius: 4,
-                border: "2px solid",
-                borderColor: COLORS.carbon,
-                marginBottom: 45,
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-
-              }}>
-                <p style={Typography.headingS}>Let's Connect</p>
+          <div className='content-container'>
+            <div className='menu-container'>
+              <button className='button-style'>
+                <HeadingS>Let's Connect</HeadingS>
                 <img src={LinkArrowBlack} style={{ marginLeft: 10 }} width={28} />
               </button>
             </div>
             <div>
               <img src={Contact} width={350} height={274} />
             </div>
-            <div style={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'end',
-              alignItems: 'center',
-              marginRight: 60,
-            }}>
-              <button style={{
-                backgroundColor: COLORS.white,
-                padding: 10,
-                color: COLORS.carbon,
-                borderRadius: 4,
-                border: "2px solid",
-                borderColor: COLORS.carbon,
-                textTransform: 'uppercase',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                cursor: 'pointer',
-
-              }}
+            <div className='close-container'>
+              <button className='close-button'
                 onClick={closeMenu}
               >
-                <p style={Typography.label}>Close</p>
+                <Label>Close</Label>
                 <img src={Close} style={{ marginLeft: 10 }} width={16} />
               </button>
             </div>
           </div>
         </div>
       </OffCanvasMenuWrapper>
-
-    </Fragment>
+    </OffCanvasMenuStyleWrapper>
   );
 };
 

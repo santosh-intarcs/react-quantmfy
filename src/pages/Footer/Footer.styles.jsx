@@ -5,11 +5,11 @@ import { BREAKPOINT } from "../../constants/breakpoints";
 export const FooterWrapper = styled.div`
   .footer-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(180deg, #F4F9DD 0%, #E7D7DD 100%);
     padding-left: 80px;
     padding-right: 80px;
@@ -29,7 +29,6 @@ export const FooterWrapper = styled.div`
       flex-direction: row;
       @media (max-width: ${BREAKPOINT.sm}) {
         flex-direction: column;
-        padding:20px;
       }
     }
 
@@ -38,12 +37,17 @@ export const FooterWrapper = styled.div`
       margin-right: 20px;
       @media (max-width: ${BREAKPOINT.sm}) {
         max-width:100%;
+        margin: 0px;
+
       }
     }
     .footer-image {
         width:600px;
+        margin-left:20px;
+        padding:0;
         @media (max-width: ${BREAKPOINT.sm}) {
             margin-top:40px;
+            margin-left:0px;
             width:100%;
         }
     }
@@ -54,8 +58,7 @@ export const FooterWrapper = styled.div`
       @media (max-width: ${BREAKPOINT.sm}) {
         background-color: ${COLORS.white};
         border-radius: 16px;
-        padding: 12px;
-
+        padding: 20px;
       }
     }
   }
@@ -64,8 +67,6 @@ export const FooterWrapper = styled.div`
 
 
 export const ContactFormWrapper = styled.div`
-  max-height: 54vh;
-  max-width: 440px;
   @media (max-width: ${BREAKPOINT.sm}) {
     max-width: 100%;
   }
@@ -77,15 +78,22 @@ export const ContactFormWrapper = styled.div`
     padding: 10px;
   }
    .container-style {
-        margin-bottom: 12px;
-        display: flex;
-        width:100%;
-        flex-direction: column;
+      margin-bottom: 12px;
+      display: flex;
+      width:100%;
+      flex-direction: column;
     }
 
-  .form-container {
+  .contact-form-container {
     display: flex;
     flex-direction: column;
+    background-color: ${COLORS.white};
+    border-radius: 16px;
+    padding:32px;
+    @media (max-width: ${BREAKPOINT.sm}) {
+      width:100%;
+      padding:0px;
+    }
   }
 
   .name-container {
@@ -111,5 +119,9 @@ export const ContactFormWrapper = styled.div`
     font-weight: 600;
     min-height: 44px;
     margin-bottom: 30px;
+    @media (max-width: ${BREAKPOINT.sm}) {
+      margin:0px;
+      width:100%;
+  }
   }
 `;

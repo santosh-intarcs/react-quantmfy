@@ -30,7 +30,7 @@ const ContactForm = () => {
   return (
     <ContactFormWrapper>
       <form onSubmit={handleSubmit} >
-        <div className='form-container'>
+        <div className='contact-form-container'>
           <div className='name-container'>
             <div className='container-style'>
               <label htmlFor="firstName" style={Typography.bodyM}>First Name</label>

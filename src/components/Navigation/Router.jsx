@@ -4,6 +4,7 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import HomePage from "../../pages/HomePage/HomePage";
+import ItemStaffing from "../../pages/ItStaffing/ItStaffing";
 
 export const BroswerRoute = createBrowserRouter([
     {
@@ -17,5 +18,9 @@ export const BroswerRoute = createBrowserRouter([
     {
         path:'/techno-consultant',
         element: <TechnologyConsultantPage />
+    },
+    {
+        path:'/it-staffing',
+        element: <ItemStaffing />
     },
 ]);
