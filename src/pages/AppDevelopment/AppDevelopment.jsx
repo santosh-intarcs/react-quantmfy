@@ -145,9 +145,9 @@ const AppDevelopmentPage = () => {
         position: 'fixed',
         right: '4%',
         top: '30%',
-        display: 'block',
+        display: 'none',
         '@media (min-width: 768px)': {
-          display: 'none',
+          display: 'block',
         },
       }}>
         <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />

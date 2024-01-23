@@ -247,11 +247,7 @@ export const SectionButtonWrapper = styled.div`
     align-self: flex-end; // Corrected from 'end' to 'flex-end'
 
     @media (max-width: ${BREAKPOINT.sm}) {
-      font-size: 12px;
-    }
-
-    @media (max-width: ${BREAKPOINT.sm}) {
-      font-size: 16px;
+      display:none;
     }
   }
 

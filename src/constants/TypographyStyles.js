@@ -19,7 +19,6 @@ export const HeadingL = styled.p`
 export const HeadingM = styled.p`
     font-size: 40px;
     font-weight: 300;
-    /* lineHeight: 50px; */
     letter-spacing: -1px;
     text-align: center;
     color: ${COLORS.carbon};

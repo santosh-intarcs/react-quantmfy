@@ -1,22 +1,8 @@
 import React, { useState } from 'react';
-import COLORS from '../../constants/colors';
 import Typography from '../../constants/textStyle';
+import { ContactFormWrapper } from './Footer.styles';
 
 
-const InputStyle = {
-  border: '2px solid',
-  borderColor: COLORS.carbon,
-  borderRadius: 4,
-  padding: 10
-}
-
-const ContainerStyle = {
-  marginBottom: 12,
-  display: 'flex',
-  flexDirection: 'column',
-
-
-}
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -42,11 +28,11 @@ const ContactForm = () => {
   };
 
   return (
-    <div style={{maxHeight:'54vh',maxWidth:440}}>
+    <ContactFormWrapper>
       <form onSubmit={handleSubmit} >
-        <div style={{ display: 'flex', flexDirection: 'column', }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ marginBottom: 12, marginRight: 0 }}>
+        <div className='form-container'>
+          <div className='name-container'>
+            <div className='container-style'>
               <label htmlFor="firstName" style={Typography.bodyM}>First Name</label>
               <input
                 type="text"
@@ -54,10 +40,10 @@ const ContactForm = () => {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                style={InputStyle}
+                className='input-style'
               />
             </div>
-            <div style={ContainerStyle}>
+            <div  className='container-style'>
               <label htmlFor="lastName" style={Typography.bodyM}>Last Name</label>
               <input
                 type="text"
@@ -65,11 +51,11 @@ const ContactForm = () => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                style={InputStyle}
+                className='input-style'
               />
             </div>
           </div>
-          <div style={ContainerStyle}>
+          <div  className='container-style'>
             <label style={Typography.bodyM} htmlFor="email" >Email</label>
             <input
               type="email"
@@ -77,10 +63,10 @@ const ContactForm = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              style={InputStyle}
+              className='input-style'
             />
           </div>
-          <div style={ContainerStyle}>
+          <div  className='container-style'>
             <label htmlFor="organizationName" style={Typography.bodyM}>Organisation Name</label>
             <input
               type="text"
@@ -88,23 +74,23 @@ const ContactForm = () => {
               name="organizationName"
               value={formData.organizationName}
               onChange={handleChange}
-              style={InputStyle}
+              className='input-style'
             />
           </div>
-          <div style={ContainerStyle}>
+          <div className='container-style'>
             <label htmlFor="comments" style={Typography.bodyM}>Comments</label>
             <textarea
               id="comments"
               name="Comment (optional)"
               value={formData.comments}
               onChange={handleChange}
-              style={InputStyle}
+              className='input-style'
             />
           </div>
-          <button style={{ alignSelf: 'end', width: '25%', backgroundColor: COLORS.carbon, padding: 10, color: COLORS.white, borderRadius: 4, border: "none", textTransform: 'uppercase', fontSize: 14, fontWeight: 600, minHeight: 44, marginBottom: 30 }}>Submit</button>
+          <button className='button'>Submit</button>
         </div>
       </form>
-    </div>
+    </ContactFormWrapper>
   );
 };
 
