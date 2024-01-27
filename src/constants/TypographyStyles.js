@@ -33,6 +33,9 @@ export const HeadingS = styled.p`
     color: ${COLORS.carbon};
     @media (max-width: ${BREAKPOINT.sm}) {
         font-size: 32px;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
     }
 `;
 
@@ -105,6 +108,8 @@ export const Label = styled.p`
     color: ${COLORS.carbon};
     text-transform: uppercase;
     @media (max-width: ${BREAKPOINT.xs}) {
-        font-size: 14px;
+        font-size: 10px;
+        font-weight: 700;
+
     }
 `;

@@ -6,9 +6,9 @@ import SolutionsBg from '../../assets/Appdev/Solutions-BG.svg';
 
 
 export const AppDevelopmentWrapper = styled.div`
-  display:flex;
-  justify-content:center;
-  flex-direction:column;
+  // display:flex;
+  // justify-content:center;
+  // flex-direction:column;
   .gradient {
     background: linear-gradient(180deg, #9186C9 0%, #DCE3EC 61.46%);
     padding: 0;
@@ -135,16 +135,17 @@ export const AppDevelopmentWrapper = styled.div`
   .section3-heading {
     text-align: center; 
     @media (max-width: ${BREAKPOINT.sm}) {
-      text-align:start;
+      text-align:center;
     } 
   }
 
   .section3-image-container {
     display: flex;
     justify-content: center;
+    align-items:center;
 
     @media ( max-width: ${BREAKPOINT.sm}) {
-      padding-top: 20px;
+      padding-top: 0px;
       flex-direction: column;
       justify-content: start;
       align-items:center;

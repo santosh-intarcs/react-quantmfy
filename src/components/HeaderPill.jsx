@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import COLORS from "../constants/colors";
 import { Label } from "../constants/TypographyStyles";
+import { BREAKPOINT } from "../constants/breakpoints";
 
 const Wrapper = styled.div`
 display: inline-flex;
@@ -10,9 +11,11 @@ padding: 10px 15px;
 justify-content: center;
 align-items: center;
 border-radius:50px;
-gap: 10px;
 margin-bottom:16px;
-flex-shrink: 0;
+@media (max-width: ${BREAKPOINT.xs}) {
+  height: 24px;
+
+}
 `
 
 const HeaderPill = ({

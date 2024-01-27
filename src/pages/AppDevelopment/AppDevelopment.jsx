@@ -60,6 +60,7 @@ const LabelText = ({ label }) => {
       borderRadius: 50,
       display: 'inline-flex',
       width: 'fit-content',
+      alignItems:'center',
     }}>
       <img src={Checkicon} width={18} />
       <Label style={{ marginLeft: 10, textAlign: 'center' }}>{label}</Label>
