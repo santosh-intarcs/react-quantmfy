@@ -12,6 +12,13 @@
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
+    "@mantine/carousel": "^7.5.0",
+    "@mantine/core": "^7.5.0",
+    "@mantine/dropzone": "^7.5.0",
+    "@mantine/form": "^7.5.0",
+    "@mantine/hooks": "^7.5.0",
+    "@mantine/modals": "^7.5.0",
+    "embla-carousel-react": "8.0.0-rc21",
     "gh-pages": "^6.1.1",
     "gsap": "^3.12.4",
     "react": "^18.2.0",
