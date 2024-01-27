@@ -9,11 +9,11 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import TechStrategy from '../../assets/TechnoConsulting/Technology-Strategy.svg';
-import { BodyM, BodyS, BodySbold, HeadingM, HeadingS, Label } from "../../constants/TypographyStyles";
-import { ItStaffingWrapper, PillsWrapper } from "./ItStaffingWrapper";
-import SkillImage from '../../assets/ItStaffing/Skill.svg';
-import COLORS from "../../constants/colors";
+import { BodyM, BodyS, BodySbold, HeadingM, HeadingS, HeadingXs, Label } from "../../constants/TypographyStyles";
+import WebArchitecture from '../../assets/webDev/Web-Architecture.svg';
+import { PillsWrapper, WebDevelomentWrapper } from "./WebDevelopment.styles";
+import LinkArrowBlack from '../../assets/Link-arrow.svg'
+import { CTOasServiceWrapper } from "./CTOasServiceWrapper.styles";
 
 
 const Pills = ({ label }) => {
@@ -37,15 +37,20 @@ const NavItems = [
     sectionId: 'how-we-help-section',
   },
   {
-    label: 'Contact',
+    label: 'Partner',
     id: 3,
+    sectionId: 'partner-with-qf'
+  },
+  {
+    label: 'Contact',
+    id: 4,
     sectionId: 'contact-section',
   },
 ];
 
 
 
-const ItemStaffing = () => {
+const CTOasServicePage = () => {
   const [activeItem, setActiveItem] = useState(1);
   const titleTextRef = useRef(null);
   const sectionRefs = NavItems.reduce((acc, item) => {
@@ -106,7 +111,7 @@ const ItemStaffing = () => {
   }, []);
 
   return (
-    <ItStaffingWrapper>
+    <CTOasServiceWrapper>
       <SectionButton />
       <div className="nav-style">
         <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />
@@ -124,7 +129,7 @@ const ItemStaffing = () => {
             <div>
               <div className="section1-container">
                 <div className="section1-inner-container">
-                  <HeadingM ref={titleTextRef}>Strengthen your technology operations and scale faster</HeadingM>
+                  <HeadingM ref={titleTextRef}>Fractional CTOs empowering small businesses for growth </HeadingM>
                   <div style={{ marginTop: 40 }}>
                     <object data={AppDev} className="section1-image" />
                   </div>
@@ -137,18 +142,13 @@ const ItemStaffing = () => {
         <section id="strategy-section" ref={sectionRefs[1]}>
           <div className="section2">
             <div className="section2-inner-container">
-              <div className="section3-title-container" style={{ maxWidth: '60%', alignItems: 'flex-start' }}>
-                <HeadingS style={{ textAlign: 'left' }} className="section2-title">QuantmFy is the go-to resource when your business needs additional technical resources to bolster your technology operations.</HeadingS>
-                <BodyM style={{ textAlign: 'left' }}>Our IT Staffing Services are designed to be extremely flexible and responsive, to give you an efficient and effective way to add specialized staff members to your team on a short-term or long-term basis.</BodyM>
+              <div className="section2-title-container" style={{ maxWidth: '60%', alignItems: 'flex-start' }}>
+                <HeadingS style={{ textAlign: 'left' }} className="section2-title">Looking for affordable technology guidance for your business?</HeadingS>
+                <BodyM style={{ textAlign: 'left' }}>If your CTO role is vacant or if you need project-based executive expertise, Arealtek’s CTO-as-a-Service gives you the experience and knowledge of a CTO without the high cost.</BodyM>
               </div>
               <div className="section2-inner">
-                <div className="section2-left-container">
-                  <Label>With our flexible IT staffing services, you can:</Label>
-                  <img src={SkillImage} />
-                  <BodyS>Acquire skilled team members when you need them – for any timeframe.</BodyS>
-                </div>
-                <div className="section2-right-container">
-                  <Label>Add team members with expertise in a range of areas:</Label>
+                <div className="section2-content-container">
+                  <Label className="section2-title">Our Web Development Services</Label>
                   <div style={{ display: 'flex', justifyContent: "start", flexWrap: 'wrap' }}>
                     <Pills label='DevOps' />
                     <Pills label='Architecture' />
@@ -171,27 +171,41 @@ const ItemStaffing = () => {
         </section>
       </div>
       {/* <------------------------------------------- section 3 -------------------------------------> */}
-      <section id="how-we-help-section" ref={sectionRefs[2]}>
+      <section id="partner-with-qf" ref={sectionRefs[2]}>
         <div className="section3">
           <div className="section3-inner-container">
             <div className="section3-left-container">
-              <Label style={{color:COLORS.white}} className="mb-16">Here’s our approach</Label>
-              <HeadingS style={{color:COLORS.white}} className="mb-16">1. Identify your staffing requirements, including skills, knowledge, experience and character.</HeadingS>
+              <div className="section3-image">
+                <img src={WebArchitecture} />
+              </div>
             </div>
             <div className="section3-right-container">
-              <div className="section3-image">
-                <img src={TechStrategy} />
-              </div>
+              <Label className="mb-16">Our services</Label>
+              <HeadingXs className="mb-16">Website Development Services</HeadingXs>
+              <BodyM className="mb-16">Our team of experienced website developers combines creativity and technical expertise to deliver bespoke web solutions tailored to your unique business needs.</BodyM>
+              <BodyS className="mb-16">From intuitive navigation and responsive design to seamless integration of cutting-edge functionalities, we ensure your website employs exceptional usability, stands out from the crowd and leaves a lasting impression. Whether you require a sleek corporate site or a dynamic e-commerce site, our website development services will elevate your online presence and empower your business to thrive.</BodyS>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="how-we-help-section" ref={sectionRefs[3]}>
+        <div className="section4">
+          <div className='section4-inner-container'>
+            <HeadingS className="mb-16" style={{ textAlign: 'center' }}>Partner with QuantmFy</HeadingS>
+            <BodyS className="mb-16" style={{ textAlign: 'center' }}>Elevate your online presence, differentiate yourself from the competition, and leave a lasting impression on your target audience with QuantmFy’s web development services.</BodyS>
+            <div className="section4-link">
+              <BodyM>Tell us about your project</BodyM>
+              <img src={LinkArrowBlack} style={{ marginLeft: 10 }} width={28} />
             </div>
           </div>
         </div>
       </section>
       {/* <------------------------------------------- footer -------------------------------------> */}
-      <section id="contact-section" ref={sectionRefs[3]}>
+      <section id="contact-section" ref={sectionRefs[4]}>
         <Footer />
       </section>
-    </ItStaffingWrapper>
+    </CTOasServiceWrapper>
   )
 }
 
-export default ItemStaffing;
+export default CTOasServicePage;

@@ -6,6 +6,9 @@ import SolutionsBg from '../../assets/Appdev/Solutions-BG.svg';
 
 
 export const AppDevelopmentWrapper = styled.div`
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
   .gradient {
     background: linear-gradient(180deg, #9186C9 0%, #DCE3EC 61.46%);
     padding: 0;
@@ -17,6 +20,17 @@ export const AppDevelopmentWrapper = styled.div`
       height:80px
     }
   }
+  .nav-style {
+    position: fixed;
+    right: 4%;
+    top: 30%;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+
+
   .section1-image {
     width:420px;
     @media (max-width: ${BREAKPOINT.sm}) {
@@ -94,14 +108,15 @@ export const AppDevelopmentWrapper = styled.div`
   }
 
   .section3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
     background-color: ${COLORS.green};
     padding-top: 120px;
     padding-bottom: 120px;
-
+    padding-left: 130px;
+    padding-right: 130px;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     @media (max-width: ${BREAKPOINT.sm}) {
       flex-direction: column;
@@ -109,21 +124,19 @@ export const AppDevelopmentWrapper = styled.div`
       padding:20px
     }
   }
+  .section3-inner-container {
+    max-width:80%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+  }
+  
   .section3-heading {
     text-align: center; 
     @media (max-width: ${BREAKPOINT.sm}) {
       text-align:start;
-    }
-    
-  }
-
-  .section3-container {
-    maxWidth: '50%';
-    @media (max-width: ${BREAKPOINT.sm}) {
-      max-width: 100%;
-      padding:20px
-    }
-
+    } 
   }
 
   .section3-image-container {

@@ -9,30 +9,20 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import TechStrategy from '../../assets/TechnoConsulting/Technology-Strategy.svg';
-import { BodyM, BodyS, BodySbold, HeadingM, HeadingS, Label } from "../../constants/TypographyStyles";
-import { ItStaffingWrapper, PillsWrapper } from "./ItStaffingWrapper";
-import SkillImage from '../../assets/ItStaffing/Skill.svg';
-import COLORS from "../../constants/colors";
+import { BodyS, HeadingM, HeadingS, Label } from "../../constants/TypographyStyles";
+import { DataAnalyticsWrapper } from "./DataAnalytics.styles";
+import Industryspecific from '../../assets/Appdev/industry-group.svg';
 
-
-const Pills = ({ label }) => {
-  return (
-    <PillsWrapper>
-      <Label>{label}</Label>
-    </PillsWrapper>
-  );
-}
 
 
 const NavItems = [
   {
-    label: 'Staffing',
+    label: 'Value',
     id: 1,
     sectionId: 'strategy-section',
   },
   {
-    label: 'Our Approach',
+    label: 'how we help',
     id: 2,
     sectionId: 'how-we-help-section',
   },
@@ -45,7 +35,7 @@ const NavItems = [
 
 
 
-const ItemStaffing = () => {
+const DataAnalyticsPage = () => {
   const [activeItem, setActiveItem] = useState(1);
   const titleTextRef = useRef(null);
   const sectionRefs = NavItems.reduce((acc, item) => {
@@ -106,13 +96,13 @@ const ItemStaffing = () => {
   }, []);
 
   return (
-    <ItStaffingWrapper>
+    <DataAnalyticsWrapper>
       <SectionButton />
       <div className="nav-style">
         <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />
       </div>
       <div style={{
-        background: 'linear-gradient(180deg, rgba(145, 134, 201, 0.17) 0%, #5376A3 100%)',
+        background: 'linear-gradient(180deg, #F4F9DD 0%, #E7D7DD 61.46%)',
         padding: 0,
         margin: 0,
       }}>
@@ -124,7 +114,7 @@ const ItemStaffing = () => {
             <div>
               <div className="section1-container">
                 <div className="section1-inner-container">
-                  <HeadingM ref={titleTextRef}>Strengthen your technology operations and scale faster</HeadingM>
+                  <HeadingM ref={titleTextRef}>Unlock more value from your business data</HeadingM>
                   <div style={{ marginTop: 40 }}>
                     <object data={AppDev} className="section1-image" />
                   </div>
@@ -137,35 +127,19 @@ const ItemStaffing = () => {
         <section id="strategy-section" ref={sectionRefs[1]}>
           <div className="section2">
             <div className="section2-inner-container">
-              <div className="section3-title-container" style={{ maxWidth: '60%', alignItems: 'flex-start' }}>
-                <HeadingS style={{ textAlign: 'left' }} className="section2-title">QuantmFy is the go-to resource when your business needs additional technical resources to bolster your technology operations.</HeadingS>
-                <BodyM style={{ textAlign: 'left' }}>Our IT Staffing Services are designed to be extremely flexible and responsive, to give you an efficient and effective way to add specialized staff members to your team on a short-term or long-term basis.</BodyM>
-              </div>
-              <div className="section2-inner">
-                <div className="section2-left-container">
-                  <Label>With our flexible IT staffing services, you can:</Label>
-                  <img src={SkillImage} />
-                  <BodyS>Acquire skilled team members when you need them – for any timeframe.</BodyS>
+              {/* <div className="section2-left-container"> */}
+                <HeadingS className="section2-title">Your business has large amounts of data, but your employees may not have easy access to it – or may not be quite sure how to leverage it.</HeadingS>
+                <BodyS className="section2-title">QuantmFy helps your organization gain more value from its data though our data analytics solutions and services that empower your teams to collect, process, analyze and mine a large amount of data and transform this data into commercial value.</BodyS>
+              {/* </div> */}
+              {/* <div className="section2-right-container">
+                <div className="section2-bg-image">
+                  <img src={ExperiencedConsultant} />
                 </div>
-                <div className="section2-right-container">
-                  <Label>Add team members with expertise in a range of areas:</Label>
-                  <div style={{ display: 'flex', justifyContent: "start", flexWrap: 'wrap' }}>
-                    <Pills label='DevOps' />
-                    <Pills label='Architecture' />
-                    <Pills label='Artificial intelligence' />
-                    <Pills label='Data science' />
-                    <Pills label='IT operations' />
-                    <Pills label='Application modernization' />
-                    <Pills label='Internet of things' />
-                    <Pills label='Identity & access management' />
-                    <Pills label='Software engineering' />
-                    <Pills label='Mobile applications' />
-                    <Pills label='Cloud computing' />
-                    <Pills label='Artificial intelligence' />
-                    <Pills label='Content management systems' />
-                  </div>
+                <div className="section2-text-container">
+                  <HeadingXs className="mb-16">Experienced consultants</HeadingXs>
+                  <BodyS>Our experienced, senior-level technology consultants provide strategic advisory services to help your leadership teams define long-term technology strategies and solutions that propel your business forward.</BodyS>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -175,12 +149,14 @@ const ItemStaffing = () => {
         <div className="section3">
           <div className="section3-inner-container">
             <div className="section3-left-container">
-              <Label style={{color:COLORS.white}} className="mb-16">Here’s our approach</Label>
-              <HeadingS style={{color:COLORS.white}} className="mb-16">1. Identify your staffing requirements, including skills, knowledge, experience and character.</HeadingS>
+              <Label className="mb-16">Here’s how we can help</Label>
+              <HeadingS className="mb-16">Data modeling</HeadingS>
+              {/* <BodySbold className="mb-16">Our technology strategists help you identify and implement the most effective technology solutions to meet your business’s unique needs.</BodySbold> */}
+              <bodyS className="mb-16">We design and visualize your data in a structured and organized way, ensuring that data is accurately captured, stored, and processed. We ensure that your teams have a clear understanding of data relationships and dependencies, enabling team members to make informed decisions and take actions based on reliable and accurate data.</bodyS>
             </div>
             <div className="section3-right-container">
               <div className="section3-image">
-                <img src={TechStrategy} />
+                <img src={Industryspecific} width={400} />
               </div>
             </div>
           </div>
@@ -190,8 +166,8 @@ const ItemStaffing = () => {
       <section id="contact-section" ref={sectionRefs[3]}>
         <Footer />
       </section>
-    </ItStaffingWrapper>
+    </DataAnalyticsWrapper >
   )
 }
 
-export default ItemStaffing;
+export default DataAnalyticsPage;

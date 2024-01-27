@@ -98,15 +98,7 @@ const TechnologyConsultantPage = () => {
   return (
     <TechnoConsultingWrapper>
       <SectionButton />
-      <div style={{
-       position: 'fixed',
-       right: '4%',
-       top: '30%',
-       display: 'block',
-       '@media (max-width: 767px)': {
-         display: 'none',
-       },
-      }}>
+      <div className="nav-style">
         <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />
       </div>
       <div style={{
@@ -135,7 +127,7 @@ const TechnologyConsultantPage = () => {
         <section id="strategy-section" ref={sectionRefs[1]}>
           <div className="section2">
             <div className="section2-inner-container">
-              <div className=".section2-left-container">
+              <div className="section2-left-container">
 
                 <HeadingS className="section2-title">We understand the importance of developing a technology strategy that aligns with your business goals and delivers tangible value to your organization.</HeadingS>
               </div>
@@ -164,7 +156,7 @@ const TechnologyConsultantPage = () => {
             </div>
             <div className="section3-right-container">
               <div className="section3-image">
-                <img src={TechStrategy} width={420} />
+                <img src={TechStrategy} width={400} />
               </div>
             </div>
           </div>

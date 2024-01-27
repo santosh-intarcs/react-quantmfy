@@ -31,7 +31,7 @@ const ContactForm = () => {
     <ContactFormWrapper>
       <form onSubmit={handleSubmit} >
         <div className='contact-form-container'>
-          <div className='name-container'>
+          {/* <div className='name-container'>
             <div className='container-style'>
               <label htmlFor="firstName" style={Typography.bodyM}>First Name</label>
               <input
@@ -54,7 +54,29 @@ const ContactForm = () => {
                 className='input-style'
               />
             </div>
-          </div>
+          </div> */}
+          <div className='container-style'>
+              <label htmlFor="firstName" style={Typography.bodyM}>First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                className='input-style'
+              />
+            </div>
+            <div  className='container-style'>
+              <label htmlFor="lastName" style={Typography.bodyM}>Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                className='input-style'
+              />
+            </div>
           <div  className='container-style'>
             <label style={Typography.bodyM} htmlFor="email" >Email</label>
             <input

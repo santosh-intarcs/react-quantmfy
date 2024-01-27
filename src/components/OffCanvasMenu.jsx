@@ -10,6 +10,7 @@ import Close from "../assets/Close.svg";
 import { Link } from 'react-router-dom';
 import { ListingWrapper, OffCanvasMenuStyleWrapper } from './OffCanvasMenu.style';
 import { HeadingS, Label } from '../constants/TypographyStyles';
+import { BREAKPOINT } from '../constants/breakpoints';
 
 
 const ServiceListing = ({ title, path }) => {
@@ -42,6 +43,10 @@ const OffCanvasMenuWrapper = styled.aside`
     ${props => props.open && css`
         right: 0; /* Update left to right to slide in from the right */
     `}
+    @media (max-width: ${BREAKPOINT.sm}) {
+      /* Apply overflow-y: auto; only for mobile views */
+      overflow-y: auto;
+  }
 `;
 
 
@@ -68,10 +73,10 @@ const OffCanvasMenu = ({
               <ServiceListing title='Application development' path="/app-development" />
               <ServiceListing title='IT Consultant' path='/techno-consultant' />
               <ServiceListing title='IT Staffing' path='/it-staffing' />
-              <ServiceListing title='Data Analytics'  path='' />
-              <ServiceListing title='Web development' path='' />
-              <ServiceListing title='Technology Toolkit' path='' />
-              <ServiceListing title='CTO-as-a-Service' path='' />
+              <ServiceListing title='Data Analytics'  path='/data-analytics' />
+              <ServiceListing title='Web development' path='/web-development' />
+              <ServiceListing title='Technology Toolkit' path='/technology-toolkit' />
+              <ServiceListing title='CTO-as-a-Service' path='/cto-as-a-service' />
             </div>
           </div>
           <div className='content-container'>

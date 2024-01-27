@@ -5,6 +5,14 @@ import { BREAKPOINT } from '../../constants/breakpoints';
 
 
 export const TechnoConsultingWrapper = styled.div`
+    .nav-style {
+    position: fixed;
+    right: 4%;
+    top: 30%;
+    @media (max-width: 768px) {
+    display: none;
+    }
+    }
   .section1 {
     background-image: url(${HeroImage});
     background-size: contain;
@@ -200,6 +208,7 @@ export const TechnoConsultingWrapper = styled.div`
       @media (max-width: ${BREAKPOINT.sm}) {
         background: none;
         height:300px;
+        width:98%;
         padding:0; 
       }
     }

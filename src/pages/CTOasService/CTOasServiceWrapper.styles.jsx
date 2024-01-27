@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import HeroImage from '../../assets/Appdev/Hero-BG.svg'
-import SolutionsBg from '../../assets/Appdev/Solutions-BG.svg';
 import { BREAKPOINT } from '../../constants/breakpoints';
 import COLORS from '../../constants/colors';
+import ServiceBg from '../../assets/webDev/Services-BG.svg';
 
 
 
-export const ItStaffingWrapper = styled.div`
+
+export const CTOasServiceWrapper = styled.div`
 
 .nav-style {
   position: fixed;
@@ -72,7 +73,13 @@ export const ItStaffingWrapper = styled.div`
         margin-top: 80px;
         padding-bottom: 60px;
     }
-
+    .section2-title-container {
+        max-width:60%;
+        align-items:flex-start;
+        @media (max-width: ${BREAKPOINT.sm}) {
+          max-width: 100%;
+        }
+      }
     .section2-inner-container {
         margin-top:100px;
     
@@ -80,66 +87,20 @@ export const ItStaffingWrapper = styled.div`
         margin-top:0px;
       }
     }
-    .section2-inner {
-      display:flex;
-      justify-content:space-between;
-      margin-top:40px;
-      @media (max-width: ${BREAKPOINT.sm}) {
-        flex-direction: column;
-        min-width:100%;
-      }
-    }
     .section2-title {
       margin-bottom: 16px;
-    //   @media (max-width: ${BREAKPOINT.sm}) {
-    //     text-align: start;
-    //   }
     }
-    .section2-left-container {
-        background-color: ${COLORS.lightViolet};
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: column;
-        max-width: 30%;
-        padding: 20px;
-        @media (max-width: ${BREAKPOINT.sm}) {
-          max-width: 100%;
-          margin-bottom:30px;
-        }
-    }
-    .section2-right-container {
-         max-width: 65%;
+    .section2-content-container {
+         max-width: 85%;
          padding:20px;
          border:1px solid ${COLORS.white};
          border-radius:16px;
+         margin-top:30px;
       
       @media (max-width: ${BREAKPOINT.sm}) {
         max-width: 100%;
-        // flex-direction: column;
-      }
-    }
-    .section2-bg-image {
-      background-image: url(${SolutionsBg});
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 50%;
-      display: flex;
-      justify-content: flex-end;
-      @media (max-width: ${BREAKPOINT.sm}) {
-        width: 100%;
-        flex-direction: column;
-      }
-    }
-    .section2-text-container {
-      margin-left: 40px;
-      width: 50%;
-      margin-right: 60px;
-      @media (max-width: ${BREAKPOINT.sm}) {
-        width: 100%;
-        flex-direction: column;
-        margin-right: 0px;
+        margin-top:20px;
+
       }
     }
   }
@@ -149,7 +110,7 @@ export const ItStaffingWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background: linear-gradient(180deg, #9186C9 -28.99%, #DCE3EC 50.29%);
+    background-color: ${COLORS.green};
     max-width: 100%;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -158,19 +119,11 @@ export const ItStaffingWrapper = styled.div`
         flex-direction: column;
         padding:0;
     }
-    .section3-title-container {
-      max-width:60%;
-      align-items:flex-start;
-      @media (max-width: ${BREAKPOINT.sm}) {
-        max-width: 100%;
-      }
-    }
     .section3-inner-container {
-      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      max-width: 68%;
+      max-width: 80%;
       @media (max-width: ${BREAKPOINT.sm}) {
         padding:20px;
         flex-direction: column;
@@ -180,11 +133,6 @@ export const ItStaffingWrapper = styled.div`
       }
     }
     .section3-left-container {
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-      background-color: ${COLORS.carbon};
-      padding: 60px;
-      width: 45%;
       height: 80vh;
 
       @media (max-width: ${BREAKPOINT.sm}) {
@@ -200,12 +148,10 @@ export const ItStaffingWrapper = styled.div`
       }
     }
     .section3-right-container {
-      width: 30%;
       height: 80vh;
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
       flex: 1;
-      background: linear-gradient(180deg, #DCE3EC 0%, #9186C9 100%);
       padding: 32px;
 
       @media (max-width: ${BREAKPOINT.sm}) {
@@ -223,11 +169,14 @@ export const ItStaffingWrapper = styled.div`
     .section3-image {
       width: 420px;
       height: 416px;
-      // mix-blend-mode: screen;
       padding: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background-image: url(${ServiceBg});
+      background-size: cover; 
+      background-position: center;
+      background-repeat: no-repeat;
       img {
         width: 420px
       }
@@ -241,6 +190,27 @@ export const ItStaffingWrapper = styled.div`
         }
       }
     }
+  }
+  .section4 {
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    @media (max-width: ${BREAKPOINT.sm}) {
+        min-height:auto;
+        padding-top:40px;
+        padding-bottom:40px;
+      }
+  }
+  .section4-inner-container {
+    max-width:50%;
+
+  }
+  .section4-link {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
   }
 
   .mb-16 {
