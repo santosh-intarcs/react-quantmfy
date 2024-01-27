@@ -1,7 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import HeroImage from '../../assets/Appdev/Hero-BG.svg'
 import QFLogo from '../../assets/QuantmFy-logo.svg';
-import Typography from "../../constants/textStyle";
 import AppDev from "../../assets/appdev.svg"
 import Checkicon from "../../assets/Appdev/Success-check.svg";
 import COLORS from "../../constants/colors";
@@ -11,7 +9,6 @@ import Idea from '../../assets/Appdev/Idea validation.svg';
 import CustomAppDev from '../../assets/Appdev/Custom -application-development.svg';
 import CustomCloud from '../../assets/Appdev/Custom-software-solutions-for-cloud.svg';
 import DesktopWeb from '../../assets/Appdev/Desktop-web-mobile.svg';
-import SolutionsBg from '../../assets/Appdev/Solutions-BG.svg';
 import Industryspecific from '../../assets/Appdev/industry-group.svg';
 import SysIntegration from '../../assets/Appdev/sys-integration.svg';
 import Footer from "../Footer/Footer";
@@ -19,7 +16,8 @@ import NavbarVertical from "../../components/Navigation/NavbarVertical";
 import { useRef } from "react";
 import SectionButton from "../../components/SectionButton";
 import { AppDevelopmentWrapper, ImageWrapperStyle } from "./AppDevelopment.styles";
-import { BodyS, HeadingL, HeadingM, HeadingS, Label } from "../../constants/TypographyStyles";
+import { BodyS,  HeadingM, HeadingS, Label } from "../../constants/TypographyStyles";
+import HeaderPill from '../../components/HeaderPill'
 
 
 const NavItems = [
@@ -75,7 +73,7 @@ const ImageWrapper = ({ image, title }) => {
       <div className="image-container">
         <img src={image} width={175} alt={title} />
       </div>
-      <p style={{ ...Typography.label, textAlign: 'center', color: COLORS.white }}>{title}</p>
+      <Label style={{  textAlign: 'center', color: COLORS.white }}>{title}</Label>
     </ImageWrapperStyle>
   );
 };
@@ -147,6 +145,7 @@ const AppDevelopmentPage = () => {
               <div>
                 <div className="section1-container">
                   <div className="section1-content">
+                    <HeaderPill label='Custom Application Development' />
                     <HeadingM>Overcome your business challenges with reliable, custom software applications</HeadingM>
                     <div style={{ marginTop: 40 }}>
                       <object data={AppDev} className="section1-image" />
@@ -211,10 +210,10 @@ const AppDevelopmentPage = () => {
                 <img src={SysIntegration} className="section5-image" objectFit={'cover'} />
               </div>
               <div className="section5-inner-container">
-                <p style={{ ...Typography.label, marginBottom: 16 }}>Deep dive</p>
-                <p style={{ ...Typography.headingS, marginBottom: 16 }}>System Integration Services</p>
-                <p style={{ ...Typography.bodyS, marginBottom: 16 }}>Our team of experienced developers help you seamlessly connect your systems and applications with one another and with third-party platforms and applications.<br /><br />
-                  We can help you achieve a smooth and effective integration that will improve your overall business efficiency and take your business to the next level.</p>
+                <Label style={{  marginBottom: 16 }}>Deep dive</Label>
+                <HeadingS style={{ marginBottom: 16 }}>System Integration Services</HeadingS>
+                <BodyS style={{ marginBottom: 16 }}>Our team of experienced developers help you seamlessly connect your systems and applications with one another and with third-party platforms and applications.<br /><br />
+                  We can help you achieve a smooth and effective integration that will improve your overall business efficiency and take your business to the next level.</BodyS>
               </div>
             </div>
           </div>

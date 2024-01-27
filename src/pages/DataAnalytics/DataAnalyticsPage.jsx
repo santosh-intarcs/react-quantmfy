@@ -12,6 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { BodyS, HeadingM, HeadingS, Label } from "../../constants/TypographyStyles";
 import { DataAnalyticsWrapper } from "./DataAnalytics.styles";
 import Industryspecific from '../../assets/Appdev/industry-group.svg';
+import HeaderPill from "../../components/HeaderPill";
 
 
 
@@ -114,6 +115,7 @@ const DataAnalyticsPage = () => {
             <div>
               <div className="section1-container">
                 <div className="section1-inner-container">
+                  <HeaderPill label='Data Analytics' />
                   <HeadingM ref={titleTextRef}>Unlock more value from your business data</HeadingM>
                   <div style={{ marginTop: 40 }}>
                     <object data={AppDev} className="section1-image" />

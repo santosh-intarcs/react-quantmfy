@@ -110,7 +110,7 @@ export const CTOasServiceWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background-color: ${COLORS.green};
+    // background: linear-gradient(180deg, #9186C9 -28.99%, #DCE3EC 50.29%);
     max-width: 100%;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -119,11 +119,33 @@ export const CTOasServiceWrapper = styled.div`
         flex-direction: column;
         padding:0;
     }
+    .section3-right-container {
+      background-color: ${COLORS.lightViolet};
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      max-width: 30%;
+      padding: 20px;
+      @media (max-width: ${BREAKPOINT.sm}) {
+        max-width: 100%;
+        margin-bottom:30px;
+      }
+  }
+    .section3-title-container {
+      max-width:60%;
+      align-items:flex-start;
+      @media (max-width: ${BREAKPOINT.sm}) {
+        max-width: 100%;
+      }
+    }
     .section3-inner-container {
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      max-width: 80%;
+      // max-width: 68%;
       @media (max-width: ${BREAKPOINT.sm}) {
         padding:20px;
         flex-direction: column;
@@ -133,6 +155,10 @@ export const CTOasServiceWrapper = styled.div`
       }
     }
     .section3-left-container {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      padding: 60px;
+      width: 35%;
       height: 80vh;
 
       @media (max-width: ${BREAKPOINT.sm}) {
@@ -148,10 +174,12 @@ export const CTOasServiceWrapper = styled.div`
       }
     }
     .section3-right-container {
+      width: 20%;
       height: 80vh;
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
       flex: 1;
+      background: ${COLORS.carbon};
       padding: 32px;
 
       @media (max-width: ${BREAKPOINT.sm}) {
@@ -169,14 +197,11 @@ export const CTOasServiceWrapper = styled.div`
     .section3-image {
       width: 420px;
       height: 416px;
+      // mix-blend-mode: screen;
       padding: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-image: url(${ServiceBg});
-      background-size: cover; 
-      background-position: center;
-      background-repeat: no-repeat;
       img {
         width: 420px
       }
@@ -221,10 +246,11 @@ export const CTOasServiceWrapper = styled.div`
 export const PillsWrapper = styled.div`
     border:1px solid ${COLORS.carbon};
     border-radius:50px;
-    display: flex;
     padding: 10px 15px;
     justify-content: center;
     align-items: center;
     margin-top:16px;
     margin-right:16px;
+    display: inline-flex,
+    width: fit-content,
 `;

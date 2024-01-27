@@ -14,6 +14,7 @@ import { BodyM, BodyS, BodySbold, HeadingM, HeadingS, Label } from "../../consta
 import { ItStaffingWrapper, PillsWrapper } from "./ItStaffingWrapper";
 import SkillImage from '../../assets/ItStaffing/Skill.svg';
 import COLORS from "../../constants/colors";
+import HeaderPill from "../../components/HeaderPill";
 
 
 const Pills = ({ label }) => {
@@ -124,6 +125,7 @@ const ItemStaffing = () => {
             <div>
               <div className="section1-container">
                 <div className="section1-inner-container">
+                  <HeaderPill label='IT Staffing' />
                   <HeadingM ref={titleTextRef}>Strengthen your technology operations and scale faster</HeadingM>
                   <div style={{ marginTop: 40 }}>
                     <object data={AppDev} className="section1-image" />

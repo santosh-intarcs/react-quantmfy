@@ -12,7 +12,6 @@ export const HeadingL = styled.p`
 
     @media (max-width: ${BREAKPOINT.sm}) {
         font-size: 32px;
-        text-align:center;
     }
 `;
 
@@ -24,10 +23,6 @@ export const HeadingM = styled.p`
     color: ${COLORS.carbon};
     @media (max-width: ${BREAKPOINT.sm}) {
         font-size: 32px;
-        text-align:center;
-        font-size: 32px;
-        font-weight: 300;
-        letter-spacing: -1px;
     }
 `;
 
@@ -87,8 +82,7 @@ export const BodySbold = styled.p`
     font-weight: 500;
     color: ${COLORS.carbon};
     @media (max-width: ${BREAKPOINT.xs}) {
-        font-size: 32px;
-        text-align:center;
+        font-size: 16px;
     }
 `;
 
@@ -99,8 +93,7 @@ export const BodyXs = styled.p`
     line-height: 22px;
     color: ${COLORS.carbon};
     @media (max-width: ${BREAKPOINT.xs}) {
-        font-size: 32px;
-        text-align:center;
+        font-size: 14px;
     }
 `;
 

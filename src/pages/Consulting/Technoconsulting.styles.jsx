@@ -57,10 +57,11 @@ export const TechnoConsultingWrapper = styled.div`
 
   .section2 {
     flex-direction: row;
-    max-width: 100%;
+    // max-width: 100%;
     padding-left: 130px;
     margin-top: 80px;
     padding-bottom: 60px;
+    justify-content:center;
     @media (max-width: ${BREAKPOINT.sm}) {
         flex-direction: column;
         padding-left: 20px;
@@ -86,7 +87,7 @@ export const TechnoConsultingWrapper = styled.div`
       }
     }
     .section2-left-container {
-      max-width: 65%;
+      max-width: 60%;
       @media (max-width: ${BREAKPOINT.sm}) {
         min-width: 100%;
       }

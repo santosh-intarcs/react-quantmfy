@@ -13,6 +13,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import TechStrategy from '../../assets/TechnoConsulting/Technology-Strategy.svg';
 import { BodyS, BodySbold, HeadingM, HeadingS, HeadingXs, Label } from "../../constants/TypographyStyles";
 import { TechnoConsultingWrapper } from "./Technoconsulting.styles";
+import HeaderPill from "../../components/HeaderPill";
 
 
 const NavItems = [
@@ -114,6 +115,7 @@ const TechnologyConsultantPage = () => {
             <div>
               <div className="section1-container">
                 <div className="section1-inner-container">
+                  <HeaderPill label={'Technology Consulting Services'} />
                   <HeadingM ref={titleTextRef}>Strategic technology advice to help you grow your business</HeadingM>
                   <div style={{ marginTop: 40 }}>
                     <object data={AppDev} className="section1-image" />
@@ -128,7 +130,6 @@ const TechnologyConsultantPage = () => {
           <div className="section2">
             <div className="section2-inner-container">
               <div className="section2-left-container">
-
                 <HeadingS className="section2-title">We understand the importance of developing a technology strategy that aligns with your business goals and delivers tangible value to your organization.</HeadingS>
               </div>
               <div className="section2-right-container">

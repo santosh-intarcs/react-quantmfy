@@ -7,6 +7,8 @@ import HomePage from "../../pages/HomePage/HomePage";
 import ItemStaffing from "../../pages/ItStaffing/ItStaffing";
 import DataAnalyticsPage from "../../pages/DataAnalytics/DataAnalyticsPage";
 import WebDevelopmentPage from "../../pages/WebDevelopment/WebDevelopmentPage";
+import CTOasServicePage from "../../pages/CTOasService/CTOasServicePage";
+import TechnologyToolkitPage from "../../pages/TechnologyToolkit/TechnologyToolkit";
 
 export const BroswerRoute = createBrowserRouter([
     {
@@ -32,5 +34,13 @@ export const BroswerRoute = createBrowserRouter([
     {
         path:'/web-development',
         element: <WebDevelopmentPage />
+    },
+    {
+        path:'/cto-as-a-service',
+        element: <CTOasServicePage />
+    },
+    {
+        path:'/technology-toolkit',
+        element: <TechnologyToolkitPage />
     },
 ]);

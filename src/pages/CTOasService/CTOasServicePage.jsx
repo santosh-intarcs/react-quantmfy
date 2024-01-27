@@ -10,17 +10,29 @@ import { useEffect } from "react";
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { BodyM, BodyS, BodySbold, HeadingM, HeadingS, HeadingXs, Label } from "../../constants/TypographyStyles";
-import WebArchitecture from '../../assets/webDev/Web-Architecture.svg';
-import { PillsWrapper, WebDevelomentWrapper } from "./WebDevelopment.styles";
 import LinkArrowBlack from '../../assets/Link-arrow.svg'
-import { CTOasServiceWrapper } from "./CTOasServiceWrapper.styles";
+import SkillImage from '../../assets/ItStaffing/Skill.svg';
+import { CTOasServiceWrapper, PillsWrapper } from "./CTOasServiceWrapper.styles";
+import COLORS from "../../constants/colors";
 
 
 const Pills = ({ label }) => {
   return (
-    <PillsWrapper>
-      <Label>{label}</Label>
-    </PillsWrapper>
+    <div style={{
+      paddingLeft: 16,
+      paddingRight: 16,
+      paddingTop: 8,
+      paddingBottom: 8,
+      marginBottom: 16,
+      marginRight: 16,
+      borderRadius: 50,
+      border: '1px solid',
+      borderColor: COLORS.carbon,
+      display: 'inline-flex',
+      width: 'fit-content',
+    }}>
+      <Label style={{ marginLeft: 10, textAlign: 'center' }}>{label}</Label>
+    </div>
   );
 }
 
@@ -117,7 +129,7 @@ const CTOasServicePage = () => {
         <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />
       </div>
       <div style={{
-        background: 'linear-gradient(180deg, rgba(145, 134, 201, 0.17) 0%, #5376A3 100%)',
+        background: 'linear-gradient(180deg, #9186C9 0%, #DCE3EC 70.31%, #E7D7DD 100%)',
         padding: 0,
         margin: 0,
       }}>
@@ -144,62 +156,57 @@ const CTOasServicePage = () => {
             <div className="section2-inner-container">
               <div className="section2-title-container" style={{ maxWidth: '60%', alignItems: 'flex-start' }}>
                 <HeadingS style={{ textAlign: 'left' }} className="section2-title">Looking for affordable technology guidance for your business?</HeadingS>
-                <BodyM style={{ textAlign: 'left' }}>If your CTO role is vacant or if you need project-based executive expertise, Arealtek’s CTO-as-a-Service gives you the experience and knowledge of a CTO without the high cost.</BodyM>
+                <BodyS style={{ textAlign: 'left' }}>If your CTO role is vacant or if you need project-based executive expertise, Arealtek’s CTO-as-a-Service gives you the experience and knowledge of a CTO without the high cost.</BodyS>
               </div>
               <div className="section2-inner">
-                <div className="section2-content-container">
-                  <Label className="section2-title">Our Web Development Services</Label>
-                  <div style={{ display: 'flex', justifyContent: "start", flexWrap: 'wrap' }}>
-                    <Pills label='DevOps' />
-                    <Pills label='Architecture' />
-                    <Pills label='Artificial intelligence' />
-                    <Pills label='Data science' />
-                    <Pills label='IT operations' />
-                    <Pills label='Application modernization' />
-                    <Pills label='Internet of things' />
-                    <Pills label='Identity & access management' />
-                    <Pills label='Software engineering' />
-                    <Pills label='Mobile applications' />
-                    <Pills label='Cloud computing' />
-                    <Pills label='Artificial intelligence' />
-                    <Pills label='Content management systems' />
+                <div style={{ display: 'flex', justifyContent: 'center', }}>
+                  <div style={{ backgroundColor: COLORS.pink, paddingLeft: 60, paddingRight: 60, borderTopLeftRadius: 18, borderBottomLeftRadius: 18, minHeight: '100%' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                      <HeadingS>Experienced CTOs, ready-to-go</HeadingS>
+                      <BodyS>Our seasoned CTOs are ready to step in and assume leadership responsibilities at a moment's notice, to help your team address technology challenges and drive key initiatives. All of our CTOs are experts who ramp-up quickly and are ready from day one to contribute as key members of your leadership team.</BodyS>
+                    </div>
+                  </div>
+                  <div style={{ borderTopRightRadius: 20, borderBottomRightRadius: 20, backgroundColor: COLORS.yellow, padding: 50, paddingRight: 0 }}>
+                    <Label style={{ marginBottom: 24 }}>Our CTO’s can help your business in a range of ways:</Label>
+                    <Pills label='Technology planning' />
+                    <Pills label='Project roadmaps' />
+                    <Pills label='Hiring technology teams' />
+                    <Pills label='Governance' />
+                    <Pills label='Managing technology teams' />
+                    <Pills label='Security audits' />
+                    <Pills label='Infrastructure planning' />
+                    <Pills label='Cost optimization' />
+                    <Pills label='Cybersecurity' />
+                    <Pills label='Risk management' />
+                    <Pills label='Overseeing IT budgets' />
+                    <Pills label='Product planning' />
+                    <Pills label='Board participation' />
+                    <Pills label='Digital transformation' />
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </div>
       {/* <------------------------------------------- section 3 -------------------------------------> */}
-      <section id="partner-with-qf" ref={sectionRefs[2]}>
+        <section id="how-we-help-section" ref={sectionRefs[2]}>
         <div className="section3">
-          <div className="section3-inner-container">
+          {/* <div className="section3-inner-container"> */}
             <div className="section3-left-container">
-              <div className="section3-image">
-                <img src={WebArchitecture} />
-              </div>
+              <Label className="mb-16">Flexible engagements</Label>
+              <HeadingS className="mb-16">We offer flexible engagements to help you manage your costs while still receiving the technical leadership your business needs.</HeadingS>
+              <BodyS>Bringing in the expertise of a CTO can provide tremendous advantages to startups and small-to-medium businesses.</BodyS>
             </div>
             <div className="section3-right-container">
-              <Label className="mb-16">Our services</Label>
-              <HeadingXs className="mb-16">Website Development Services</HeadingXs>
-              <BodyM className="mb-16">Our team of experienced website developers combines creativity and technical expertise to deliver bespoke web solutions tailored to your unique business needs.</BodyM>
-              <BodyS className="mb-16">From intuitive navigation and responsive design to seamless integration of cutting-edge functionalities, we ensure your website employs exceptional usability, stands out from the crowd and leaves a lasting impression. Whether you require a sleek corporate site or a dynamic e-commerce site, our website development services will elevate your online presence and empower your business to thrive.</BodyS>
+              <Label style={{color:COLORS.white}}>With our flexible IT staffing services, you can:</Label>
+              <img src={SkillImage} />
+              <BodyS style={{color:COLORS.white}}>Acquire skilled team members when you need them – for any timeframe.</BodyS>
             </div>
-          </div>
+          {/* </div> */}
         </div>
       </section>
-      <section id="how-we-help-section" ref={sectionRefs[3]}>
-        <div className="section4">
-          <div className='section4-inner-container'>
-            <HeadingS className="mb-16" style={{ textAlign: 'center' }}>Partner with QuantmFy</HeadingS>
-            <BodyS className="mb-16" style={{ textAlign: 'center' }}>Elevate your online presence, differentiate yourself from the competition, and leave a lasting impression on your target audience with QuantmFy’s web development services.</BodyS>
-            <div className="section4-link">
-              <BodyM>Tell us about your project</BodyM>
-              <img src={LinkArrowBlack} style={{ marginLeft: 10 }} width={28} />
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
+      
       {/* <------------------------------------------- footer -------------------------------------> */}
       <section id="contact-section" ref={sectionRefs[4]}>
         <Footer />

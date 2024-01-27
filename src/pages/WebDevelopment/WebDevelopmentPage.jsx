@@ -13,6 +13,7 @@ import { BodyM, BodyS, BodySbold, HeadingM, HeadingS, HeadingXs, Label } from ".
 import WebArchitecture from '../../assets/webDev/Web-Architecture.svg';
 import { PillsWrapper, WebDevelomentWrapper } from "./WebDevelopment.styles";
 import LinkArrowBlack from '../../assets/Link-arrow.svg'
+import HeaderPill from "../../components/HeaderPill";
 
 
 const Pills = ({ label }) => {
@@ -128,6 +129,7 @@ const WebDevelopmentPage = () => {
             <div>
               <div className="section1-container">
                 <div className="section1-inner-container">
+                  <HeaderPill label='Data Analytics' />
                   <HeadingM ref={titleTextRef}>Strengthen your technology operations and scale faster</HeadingM>
                   <div style={{ marginTop: 40 }}>
                     <object data={AppDev} className="section1-image" />
