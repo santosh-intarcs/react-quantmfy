@@ -85,7 +85,7 @@ export const AppDevelopmentWrapper = styled.div`
     flex-direction: row;
     max-width: 80%;
     padding-left: 130px;
-    margin-top: 250px;
+    margin-top: 100px;
 
     @media (max-width: ${BREAKPOINT.sm} ) {
     display: flex;
@@ -109,8 +109,8 @@ export const AppDevelopmentWrapper = styled.div`
 
   .section3 {
     background-color: ${COLORS.green};
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     padding-left: 130px;
     padding-right: 130px;
     width:100%;
@@ -170,7 +170,6 @@ export const AppDevelopmentWrapper = styled.div`
     @media ( max-width: ${BREAKPOINT.sm}) {
       width:100%;
     }
-
   }
 
   .section4-container {
@@ -180,7 +179,6 @@ export const AppDevelopmentWrapper = styled.div`
     flex-direction: row;
     max-width: 80%;
     padding-left: 130px;
-    margin-top: 120px;
 
     @media ( max-width: ${BREAKPOINT.sm}) {
       margin-top: 20px;
@@ -197,12 +195,9 @@ export const AppDevelopmentWrapper = styled.div`
   }
 
   .section5 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
     background: linear-gradient(180deg, #9186C9 -28.99%, #DCE3EC 50.29%);
     padding-top: 80px;
+    padding-left:120px;
 
     @media (max-width: ${BREAKPOINT.sm}) {
       flex-direction: column;
@@ -219,8 +214,6 @@ export const AppDevelopmentWrapper = styled.div`
 
   .section5-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
 
     @media (max-width: ${BREAKPOINT.sm}) {
