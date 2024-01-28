@@ -18,7 +18,10 @@ import SectionButton from "../../components/SectionButton";
 import { AppDevelopmentWrapper, ImageWrapperStyle } from "./AppDevelopment.styles";
 import { BodyS,  HeadingM, HeadingS, Label } from "../../constants/TypographyStyles";
 import HeaderPill from '../../components/HeaderPill'
-
+import { Box, Container } from "@mantine/core";
+import classes from './AppDevelopment.module.css';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 const NavItems = [
   {
@@ -56,7 +59,7 @@ const LabelText = ({ label }) => {
       paddingRight: 15,
       paddingTop: 10,
       paddingBottom: 10,
-      marginBottom: 16,
+      // marginBottom: 16,
       borderRadius: 50,
       display: 'inline-flex',
       width: 'fit-content',
@@ -82,6 +85,7 @@ const ImageWrapper = ({ image, title }) => {
 
 
 const AppDevelopmentPage = () => {
+  const landingDescriptionRef = useRef(null);
   const [activeItem, setActiveItem] = useState(1);
   const sectionRefs = NavItems.reduce((acc, item) => {
     acc[item.id] = useRef(null);
@@ -130,100 +134,183 @@ const AppDevelopmentPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(landingDescriptionRef.current, {
+      duration: 1,
+      opacity: 1,
+      y: 0,
+      ease: "power4.out",
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: landingDescriptionRef.current,
+        start: "top 90%",
+      },
+    })
+
+  }, []);
+
   return (
-    <AppDevelopmentWrapper>
-      <SectionButton />
-      <div className="nav-style">
-        <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />
-      </div>
-      <div>
-        <div className="gradient">
-          <section>
-            <div className="section1">
-              <div>
-                <img src={QFLogo} className="qf-logo" />
-              </div>
-              <div>
-                <div className="section1-container">
-                  <div className="section1-content">
-                    <HeaderPill label='Custom Application Development' />
-                    <HeadingM>Overcome your business challenges with reliable, custom software applications</HeadingM>
-                    <div style={{ marginTop: 40 }}>
-                      <object data={AppDev} className="section1-image" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section id="challenges-section" ref={sectionRefs[1]}>
-            <div className="section2">
-              <div>
-                <HeadingS className="mb-16">If you're facing a technology challenge and don't have the in-house resources to solve it, QuantmFy is here to help.</HeadingS>
-                <BodyS className="mb-16">Our custom software development services help companies of every size realize a range of impactful business outcomes like</BodyS>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <LabelText label={'Drive more revenue'} />
-                  <LabelText label={'Reduce operational costs'} />
-                  <LabelText label={'Increase productivity'} />
-                  <LabelText label={'Improve information flows'} />
-                  <LabelText label={'Streamline business operations'} />
-                  <LabelText label={'Make data more accessible'} />
-                </div>
-              </div>
-              <div>
-                <img src={ChallengeSvg} className="section2-image" />
-              </div>
-            </div>
-          </section>
+    // <AppDevelopmentWrapper>
+    //   <SectionButton />
+    //   <div className="nav-style">
+    //     <NavbarVertical array={NavItems} activeItem={activeItem} handleItemClick={handleItemClick} />
+    //   </div>
+    //   <div>
+    //     <div className="gradient">
+    //       <section>
+    //         <div className="section1">
+    //           <div>
+    //             <img src={QFLogo} className="qf-logo" />
+    //           </div>
+    //           <div>
+    //             <div className="section1-container">
+    //               <div className="section1-content">
+    //                 <HeaderPill label='Custom Application Development' />
+    //                 <HeadingM>Overcome your business challenges with reliable, custom software applications</HeadingM>
+    //                 <div style={{ marginTop: 40 }}>
+    //                   <object data={AppDev} className="section1-image" />
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </section>
+    //       <section id="challenges-section" ref={sectionRefs[1]}>
+    //         <div className="section2">
+    //           <div>
+    //             <HeadingS className="mb-16">If you're facing a technology challenge and don't have the in-house resources to solve it, QuantmFy is here to help.</HeadingS>
+    //             <BodyS className="mb-16">Our custom software development services help companies of every size realize a range of impactful business outcomes like</BodyS>
+    //             <div style={{ display: 'flex', flexDirection: 'column' }}>
+    //               <LabelText label={'Drive more revenue'} />
+    //               <LabelText label={'Reduce operational costs'} />
+    //               <LabelText label={'Increase productivity'} />
+    //               <LabelText label={'Improve information flows'} />
+    //               <LabelText label={'Streamline business operations'} />
+    //               <LabelText label={'Make data more accessible'} />
+    //             </div>
+    //           </div>
+    //           <div>
+    //             <img src={ChallengeSvg} className="section2-image" />
+    //           </div>
+    //         </div>
+    //       </section>
+    //     </div>
+    //     <section id="team-section" ref={sectionRefs[2]}>
+    //       <div className="section3">
+    //         <div className="section3-inner-container">
+    //         <HeadingS className="section3-heading" style={{ marginBottom: 16, color: COLORS.white }}>Experienced Application Strategists and Developers</HeadingS>
+    //         <BodyS className="section3-heading" style={{ marginBottom: 16, color: COLORS.white }}>Our experienced application development teams and strategists are committed to helping you overcome your unique business challenges in an efficient and cost-effective manner.</BodyS>
+    //         <div className="section3-image-container">
+    //           <ImageWrapper image={Strategy} title='Strategy' />
+    //           <ImageWrapper image={Idea} title='Idea validation' />
+    //           <ImageWrapper image={CustomAppDev} title='custom application' />
+    //           <ImageWrapper image={CustomCloud} title='Custom software ' />
+    //           <ImageWrapper image={DesktopWeb} title='Web and mobile' />
+    //         </div>
+    //         </div>
+    //       </div>
+    //     </section>
+    //     <section id="solution-section" ref={sectionRefs[3]}>
+    //       <div className="section4">
+    //         <div className="section4-container">
+    //           <div className="section4-left-container">
+    //             <Label style={{ marginBottom: 16 }}>Our Solutions</Label>
+    //             <HeadingS style={{ marginBottom: 16 }}>Industry-specific platforms and portals to modernize delivery of services to customers and open new markets.</HeadingS>
+    //           </div>
+    //           <div>
+    //             <img src={Industryspecific} className="section4-image" />
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </section>
+    //     <section id="deep-dive-section" ref={sectionRefs[4]}>
+    //       <div className="section5">
+    //         <div className="section5-container">
+    //           <div>
+    //             <img src={SysIntegration} className="section5-image" objectFit={'cover'} />
+    //           </div>
+    //           <div className="section5-inner-container">
+    //             <Label style={{  marginBottom: 16 }}>Deep dive</Label>
+    //             <HeadingS style={{ marginBottom: 16 }}>System Integration Services</HeadingS>
+    //             <BodyS style={{ marginBottom: 16 }}>Our team of experienced developers help you seamlessly connect your systems and applications with one another and with third-party platforms and applications.<br /><br />
+    //               We can help you achieve a smooth and effective integration that will improve your overall business efficiency and take your business to the next level.</BodyS>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </section>
+    //     <section id="contact-section" ref={sectionRefs[5]}>
+    //       <Footer />
+    //     </section>
+    //   </div>
+    // </AppDevelopmentWrapper>
+    <Box style={{background: 'linear-gradient(180deg, #9186C9 0%, #DCE3EC 61.46%)'}}>
+      <Container size={1400} style={{minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div className="section1-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>
+          <HeaderPill label='Custom Application Development' />
+          <HeadingM ref={landingDescriptionRef}>Overcome your business challenges with reliable, custom software applications</HeadingM>
         </div>
-        <section id="team-section" ref={sectionRefs[2]}>
-          <div className="section3">
+        <div style={{ marginTop: 40 }}>
+          <object data={AppDev} height={600} width={600} className="section1-image" />
+        </div>
+      </Container>
+      <Container size={1400} style={{minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div className="section2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <div style={{maxWidth: '50%'}}>
+            <HeadingS>If you're facing a technology challenge and don't have the in-house resources to solve it, QuantmFy is here to help.</HeadingS>
+            <BodyS style={{marginTop: 16}}>Our custom software development services help companies of every size realize a range of impactful business outcomes like</BodyS>
+            <div style={{ display: 'flex', flexDirection: 'column', marginTop: 16, gap: 16 }}>
+              <LabelText label={'Drive more revenue'} />
+              <LabelText label={'Reduce operational costs'} />
+              <LabelText label={'Increase productivity'} />
+              <LabelText label={'Improve information flows'} />
+              <LabelText label={'Streamline business operations'} />
+              <LabelText label={'Make data more accessible'} />
+            </div>
+          </div>
+          <div style={{maxWidth: '50%'}}>
+            <img src={ChallengeSvg} className="section2-image" width={600} />
+          </div>
+        </div>
+      </Container>
+      <Box style={{background: '#669085'}}>
+        <Container size={1400} style={{height: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          {/* <div className="section3"> */}
             <div className="section3-inner-container">
-            <HeadingS className="section3-heading" style={{ marginBottom: 16, color: COLORS.white }}>Experienced Application Strategists and Developers</HeadingS>
-            <BodyS className="section3-heading" style={{ marginBottom: 16, color: COLORS.white }}>Our experienced application development teams and strategists are committed to helping you overcome your unique business challenges in an efficient and cost-effective manner.</BodyS>
-            <div className="section3-image-container">
-              <ImageWrapper image={Strategy} title='Strategy' />
-              <ImageWrapper image={Idea} title='Idea validation' />
-              <ImageWrapper image={CustomAppDev} title='custom application' />
-              <ImageWrapper image={CustomCloud} title='Custom software ' />
-              <ImageWrapper image={DesktopWeb} title='Web and mobile' />
-            </div>
-            </div>
-          </div>
-        </section>
-        <section id="solution-section" ref={sectionRefs[3]}>
-          <div className="section4">
-            <div className="section4-container">
-              <div className="section4-left-container">
-                <Label style={{ marginBottom: 16 }}>Our Solutions</Label>
-                <HeadingS style={{ marginBottom: 16 }}>Industry-specific platforms and portals to modernize delivery of services to customers and open new markets.</HeadingS>
+              <div style={{maxWidth: '60%', margin: 'auto'}}>
+                <HeadingS className="section3-heading" style={{ color: COLORS.white, textAlign: 'center' }}>Experienced Application Strategists and Developers</HeadingS>
+                <BodyS className="section3-heading" style={{ marginTop: 16, color: COLORS.white, textAlign: 'center' }}>Our experienced application development teams and strategists are committed to helping you overcome your unique business challenges in an efficient and cost-effective manner.</BodyS>
               </div>
-              <div>
-                <img src={Industryspecific} className="section4-image" />
+              <div className="section3-image-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 50}}>
+                <ImageWrapper image={Strategy} title='Strategy' />
+                <ImageWrapper image={Idea} title='Idea validation' />
+                <ImageWrapper image={CustomAppDev} title='custom application' />
+                <ImageWrapper image={CustomCloud} title='Custom software ' />
+                <ImageWrapper image={DesktopWeb} title='Web and mobile' />
               </div>
             </div>
-          </div>
-        </section>
-        <section id="deep-dive-section" ref={sectionRefs[4]}>
-          <div className="section5">
-            <div className="section5-container">
-              <div>
-                <img src={SysIntegration} className="section5-image" objectFit={'cover'} />
-              </div>
-              <div className="section5-inner-container">
-                <Label style={{  marginBottom: 16 }}>Deep dive</Label>
-                <HeadingS style={{ marginBottom: 16 }}>System Integration Services</HeadingS>
-                <BodyS style={{ marginBottom: 16 }}>Our team of experienced developers help you seamlessly connect your systems and applications with one another and with third-party platforms and applications.<br /><br />
-                  We can help you achieve a smooth and effective integration that will improve your overall business efficiency and take your business to the next level.</BodyS>
+          {/* </div> */}
+        </Container>
+      </Box>
+      <Box>
+        <Container size={1400} style={{minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <section id="solution-section" ref={sectionRefs[3]}>
+            <div className="section4">
+              <div className="section4-container">
+                <div className="section4-left-container">
+                  <Label style={{ marginBottom: 16 }}>Our Solutions</Label>
+                  <HeadingS style={{ marginBottom: 16 }}>Industry-specific platforms and portals to modernize delivery of services to customers and open new markets.</HeadingS>
+                </div>
+                <div>
+                  <img src={Industryspecific} className="section4-image" />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-        <section id="contact-section" ref={sectionRefs[5]}>
-          <Footer />
-        </section>
-      </div>
-    </AppDevelopmentWrapper>
+          </section>
+        </Container>
+      </Box>
+    </Box>
   );
 };
 
