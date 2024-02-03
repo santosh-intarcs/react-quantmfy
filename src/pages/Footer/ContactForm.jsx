@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Typography from '../../constants/textStyle';
 import { ContactFormWrapper } from './Footer.styles';
+import { BodyS, BodySbold } from '../../constants/TypographyStyles';
 
 
 
@@ -31,6 +32,8 @@ const ContactForm = () => {
     <ContactFormWrapper>
       <form onSubmit={handleSubmit} >
         <div className='contact-form-container'>
+        <BodySbold style={{textAlign:'start'}} className="mb-16">Contact information</BodySbold>
+              <BodyS className="mb-16">All fields required unless marked optional.</BodyS>
           {/* <div className='name-container'>
             <div className='container-style'>
               <label htmlFor="firstName" style={Typography.bodyM}>First Name</label>

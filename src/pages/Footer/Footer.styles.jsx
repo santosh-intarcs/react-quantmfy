@@ -9,7 +9,7 @@ export const FooterWrapper = styled.div`
     align-items: flex-start;
     flex-direction: row;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background: linear-gradient(180deg, #F4F9DD 0%, #E7D7DD 100%);
     padding-left: 80px;
     padding-right: 80px;
@@ -24,8 +24,8 @@ export const FooterWrapper = styled.div`
 
     .inner-container {
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
       flex-direction: row;
       @media (max-width: ${BREAKPOINT.sm}) {
         flex-direction: column;
@@ -54,7 +54,7 @@ export const FooterWrapper = styled.div`
     .form-container {
       background-color: ${COLORS.white}
       border-radius: 16px;
-      padding: 32px;
+      // padding: 24px;
       @media (max-width: ${BREAKPOINT.sm}) {
         background-color: ${COLORS.white};
         border-radius: 16px;

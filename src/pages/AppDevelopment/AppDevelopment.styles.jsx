@@ -6,16 +6,20 @@ import SolutionsBg from '../../assets/Appdev/Solutions-BG.svg';
 
 
 export const AppDevelopmentWrapper = styled.div`
-  // display:flex;
-  // justify-content:center;
-  // flex-direction:column;
   .gradient {
     background: linear-gradient(180deg, #9186C9 0%, #DCE3EC 61.46%);
     padding: 0;
     margin: 0;
   }
+  .sec1-bg-image {
+    background-image: url(${HeroImage});  
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
   .qf-logo {
     heigt:100px;
+    margin-left: 130px;
     @media (max-width: ${BREAKPOINT.sm}) {
       height:80px
     }
@@ -28,9 +32,6 @@ export const AppDevelopmentWrapper = styled.div`
       display: none;
     }
   }
-
-
-
   .section1-image {
     width:420px;
     @media (max-width: ${BREAKPOINT.sm}) {
@@ -40,13 +41,8 @@ export const AppDevelopmentWrapper = styled.div`
   }
 
   .section1 {
-    background-image: url(${HeroImage});
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-    padding-left: 130px;
-    padding-right: 130px;
+    min-height: 100vh;
+    width:100%;
 
     @media (max-width: ${BREAKPOINT.sm}) {
       padding-left: 20px;
@@ -60,21 +56,10 @@ export const AppDevelopmentWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction:column;
+    width:50%;
     @media (max-width: ${BREAKPOINT.sm}) {
       flex-direction:column;
-    }
-  }
-
-  .section1-content {
-    max-width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    @media (max-width: ${BREAKPOINT.sm}) {
-      max-width: 100%;
-      margin-top:80px
     }
   }
 
@@ -83,12 +68,14 @@ export const AppDevelopmentWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    max-width: 80%;
-    padding-left: 130px;
-    margin-top: 100px;
+    max-width: 100%;
+    padding-top:40px;
+    min-height:100vh;
+    margin-top
 
     @media (max-width: ${BREAKPOINT.sm} ) {
     display: flex;
+    height:auto;
     flex-direction: column;
     max-width: 100%;
     padding:20px;
@@ -109,10 +96,6 @@ export const AppDevelopmentWrapper = styled.div`
 
   .section3 {
     background-color: ${COLORS.green};
-    padding-top: 80px;
-    padding-bottom: 80px;
-    padding-left: 130px;
-    padding-right: 130px;
     width:100%;
     display:flex;
     align-items:center;
@@ -125,7 +108,7 @@ export const AppDevelopmentWrapper = styled.div`
     }
   }
   .section3-inner-container {
-    max-width:80%;
+    max-width:60%;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -229,8 +212,25 @@ export const AppDevelopmentWrapper = styled.div`
      @media (max-width: ${BREAKPOINT.sm}) {
       max-width:auto;
       max-width:100%;
+    }
+  }
 
-
+  .container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .line{
+      width: 70%;
+      height: 70px;
+      position: relative;
+      overflow: hidden;
+      span{
+        position: absolute;
+        font-size: 3rem;
+        line-height: 4.2rem;
+      }
     }
   }
 `;

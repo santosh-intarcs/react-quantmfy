@@ -69,7 +69,6 @@ export default function HomePage() {
           <div style={{ paddingLeft: 90, position: 'absolute', top: 0 }}>
             <img height={116} width={91} src={Logo} />
             <div style={{ maxWidth: '48%' }}>
-            <Title order={3}>Title test</Title>
               <p style={{ fontSize: 48, fontWeight: 300, margin: 0, marginTop: 24, letterSpacing: -3, lineHeight: 'normal' }}>The go-to technology partner for spirited startups to corporate heavyweights.</p>
               <p style={{ marginTop: 24, marginBottom: 24, fontSize: 16, fontWeight: 400 }}>We offer white-glove service driving high-quality, custom technology solutions that solve your unique challenges.</p>
               <button style={{ backgroundColor: COLORS.carbon, padding: 10, color: COLORS.white, borderRadius: 4, border: "none", textTransform: 'uppercase', fontSize: 14, fontWeight: 600, minHeight: 44, marginBottom: 30 }}>EXPLORE QUANTMFY CITY</button>

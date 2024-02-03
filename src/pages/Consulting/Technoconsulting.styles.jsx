@@ -13,25 +13,38 @@ export const TechnoConsultingWrapper = styled.div`
     display: none;
     }
     }
+    .qf-logo {
+      heigt:100px;
+      margin-left: 130px;
+      @media (max-width: ${BREAKPOINT.sm}) {
+        height:80px
+      }
+    }
   .section1 {
     background-image: url(${HeroImage});
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 90vh;
-    padding-left: 130px;
-    padding-right: 130px;
+    height: 100vh;
+    width:100%;
 
     @media (max-width: ${BREAKPOINT.sm}) {
         height:auto;
         padding-left: 20px;
         padding-right: 20px;
     }
+    .section2-cont {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:100%;
+    }
 
     .section1-container {
       display: flex;
       align-items: center;
       justify-content: center;
+      width:80%;
       @media (max-width: ${BREAKPOINT.sm}) {
         flex-direction:column;
       }
@@ -57,8 +70,6 @@ export const TechnoConsultingWrapper = styled.div`
 
   .section2 {
     flex-direction: row;
-    // max-width: 100%;
-    padding-left: 130px;
     margin-top: 80px;
     padding-bottom: 60px;
     justify-content:center;
@@ -108,7 +119,7 @@ export const TechnoConsultingWrapper = styled.div`
       background-image: url(${SolutionsBg});
       background-size: cover;
       background-repeat: no-repeat;
-      width: 50%;
+      // width: 50%;
       display: flex;
       justify-content: flex-end;
       @media (max-width: ${BREAKPOINT.sm}) {
@@ -147,7 +158,7 @@ export const TechnoConsultingWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      max-width: 68%;
+      max-width: 70%;
       @media (max-width: ${BREAKPOINT.sm}) {
         padding:20px;
         flex-direction: column;

@@ -110,9 +110,9 @@ const TechnologyConsultantPage = () => {
         <section>
           <div className="section1">
             <div>
-              <img src={QFLogo} height={100} />
+              <img src={QFLogo} className="qf-logo" />
             </div>
-            <div>
+            <div className="section2-cont">
               <div className="section1-container">
                 <div className="section1-inner-container">
                   <HeaderPill label={'Technology Consulting Services'} />

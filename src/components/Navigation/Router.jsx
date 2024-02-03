@@ -9,11 +9,13 @@ import DataAnalyticsPage from "../../pages/DataAnalytics/DataAnalyticsPage";
 import WebDevelopmentPage from "../../pages/WebDevelopment/WebDevelopmentPage";
 import CTOasServicePage from "../../pages/CTOasService/CTOasServicePage";
 import TechnologyToolkitPage from "../../pages/TechnologyToolkit/TechnologyToolkit";
+import AnimationTrailPage from "../../pages/AnimationTrail";
+import Layout from "../../pages/Layout";
 
 export const BroswerRoute = createBrowserRouter([
     {
         path: "/",
-        element: <HomePage />,
+        element: <Layout />
     },
     {
         path: "/app-development",

@@ -20,10 +20,11 @@ margin-bottom:16px;
 
 const HeaderPill = ({
   label,
-  color = COLORS.white
+  color = COLORS.white,
+  ref
 }) => {
   return (
-    <Wrapper style={{ backgroundColor: color }}>
+    <Wrapper ref={ref} style={{ backgroundColor: color }}>
       <Label style={{color:COLORS.carbon}}>{label}</Label>
     </Wrapper>
   );
