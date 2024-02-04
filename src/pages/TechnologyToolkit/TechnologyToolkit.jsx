@@ -1,16 +1,16 @@
-import React from "react";
+import React,{useRef} from "react";
 import QFLogo from '../../assets/toolkit/QF-Logo-Dark.svg';
 import Footer from "../Footer/Footer";
 import NavbarVertical from "../../components/Navigation/NavbarVertical";
 import SectionButton from "../../components/SectionButton";
 import { useState } from "react";
-import { useRef } from "react";
 import { useEffect } from "react";
 import { gsap } from "gsap"
 import { BodyM, BodyS, HeadingM, HeadingS, HeadingXs, Label } from "../../constants/TypographyStyles";
 import COLORS from "../../constants/colors";
 import { ToolkitWrapper } from "./TechnolologyToolkit.styles";
 import HeaderPill from "../../components/HeaderPill";
+import SplitType from "split-type";
 
 
 const Pills = ({ label }) => {
@@ -60,6 +60,8 @@ const NavItems = [
 
 
 const TechnologyToolkitPage = () => {
+  const section2TextAnimate = useRef(null);
+  const section2SubTextAnimate = useRef(null);
   const [activeItem, setActiveItem] = useState(1);
   const sectionRefs = NavItems.reduce((acc, item) => {
     acc[item.id] = useRef(null);
@@ -107,6 +109,34 @@ const TechnologyToolkitPage = () => {
     };
   }, []);
 
+  useEffect(()=>{
+    const target2 = section2TextAnimate.current;
+    const target3 = section2SubTextAnimate.current;
+
+    const typeSplit2 = new SplitType([target2, target3], {
+      types: 'lines, words, chars',
+      tagName: 'span'
+    });
+    gsap.from([target2.querySelectorAll('.word'), target3.querySelectorAll('.word')], {
+      y: '100%',
+      opacity: 0,
+      rotationZ: '10',
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: [target2, target3],
+        start: 'top center',
+        markers: true,
+        once: true,
+      },
+      onComplete: () => {
+        gsap.set([target2.querySelectorAll('.word'), target3.querySelectorAll('.word')], { opacity: 1 });
+       
+      }
+    });
+  },[])
+
   return (
     <ToolkitWrapper>
       <SectionButton />
@@ -127,8 +157,8 @@ const TechnologyToolkitPage = () => {
               <div className="section1-container">
                 <div className="section1-inner-container">
                   <HeaderPill label='a glimpse into our technology toolkit' color={COLORS.gray} />
-                  <HeadingM style={{textAlign:'center'}} className="mb-16">Rest assured that our extensive technology arsenal empowers us to deliver the best technology solutions for your project.</HeadingM>
-                  <BodyS style={{textAlign:'center'}}>The technology landscape is fast-paced and constantly evolving, with new frameworks, tools, and programming languages constantly emerging. This is why it’s crucial to collaborate with an application development firm that stays at the forefront of cutting-edge technologies, including AI and Blockchain.</BodyS>
+                  <HeadingM style={{textAlign:'center'}} className="mb-16" ref={section2TextAnimate}>Rest assured that our extensive technology arsenal empowers us to deliver the best technology solutions for your project.</HeadingM>
+                  <BodyS style={{textAlign:'center'}} ref={section2SubTextAnimate}>The technology landscape is fast-paced and constantly evolving, with new frameworks, tools, and programming languages constantly emerging. This is why it’s crucial to collaborate with an application development firm that stays at the forefront of cutting-edge technologies, including AI and Blockchain.</BodyS>
                 </div>
               </div>
             </div>

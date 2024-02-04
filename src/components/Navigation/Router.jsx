@@ -15,7 +15,7 @@ import Layout from "../../pages/Layout";
 export const BroswerRoute = createBrowserRouter([
     {
         path: "/",
-        element: <Layout />
+        element: <HomePage />
     },
     {
         path: "/app-development",

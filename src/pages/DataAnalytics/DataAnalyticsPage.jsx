@@ -13,6 +13,7 @@ import { BodyS, HeadingM, HeadingS, Label } from "../../constants/TypographyStyl
 import { DataAnalyticsWrapper } from "./DataAnalytics.styles";
 import Industryspecific from '../../assets/Appdev/industry-group.svg';
 import HeaderPill from "../../components/HeaderPill";
+import SplitType from "split-type";
 
 
 
@@ -39,21 +40,64 @@ const NavItems = [
 const DataAnalyticsPage = () => {
   const [activeItem, setActiveItem] = useState(1);
   const titleTextRef = useRef(null);
+  const section2TextAnimate = useRef(null);
+  const section2SubTextAnimate = useRef(null);
   const sectionRefs = NavItems.reduce((acc, item) => {
     acc[item.id] = useRef(null);
     return acc;
   }, {});
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.from(titleTextRef.current.children, {
-      duration: 1,
+    const target = titleTextRef.current;
+    const target2 = section2TextAnimate.current;
+    const target3 = section2SubTextAnimate.current;
+
+    const typeSplit1 = new SplitType(target, {
+      types: 'lines, words, chars',
+      tagName: 'span'
+    });
+    const typeSplit2 = new SplitType([target2, target3], {
+      types: 'lines, words, chars',
+      tagName: 'span'
+    });
+    
+    gsap.from(target.querySelectorAll('.word'), {
+      y: '500%',
       opacity: 0,
-      y: 50,
-      stagger: 0.2,
-      ease: "power4.out",
-      delay: 0.2
-    })
+      rotationZ: '10',
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: target,
+        start: 'top center',
+        markers: true,
+        once: true,
+      },
+      onComplete: () => {
+        // Set opacity to 1 after animation is complete
+        gsap.set(target.querySelectorAll('.word'), { opacity: 1 });
+      }
+    });
+
+    gsap.from([target2.querySelectorAll('.word'), target3.querySelectorAll('.word')], {
+      y: '100%',
+      opacity: 0,
+      rotationZ: '10',
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: [target2, target3],
+        start: 'top center',
+        markers: true,
+        once: true,
+      },
+      onComplete: () => {
+        gsap.set([target2.querySelectorAll('.word'), target3.querySelectorAll('.word')], { opacity: 1 });
+       
+      }
+    });
   }, [])
 
   const handleItemClick = (itemId, sectionId) => {
@@ -130,8 +174,8 @@ const DataAnalyticsPage = () => {
           <div className="section2">
             <div className="section2-inner-container">
               {/* <div className="section2-left-container"> */}
-                <HeadingS className="section2-title">Your business has large amounts of data, but your employees may not have easy access to it – or may not be quite sure how to leverage it.</HeadingS>
-                <BodyS className="section2-title">QuantmFy helps your organization gain more value from its data though our data analytics solutions and services that empower your teams to collect, process, analyze and mine a large amount of data and transform this data into commercial value.</BodyS>
+                <HeadingS ref={section2TextAnimate} className="section2-title">Your business has large amounts of data, but your employees may not have easy access to it – or may not be quite sure how to leverage it.</HeadingS>
+                <BodyS ref={section2SubTextAnimate} className="section2-title">QuantmFy helps your organization gain more value from its data though our data analytics solutions and services that empower your teams to collect, process, analyze and mine a large amount of data and transform this data into commercial value.</BodyS>
               {/* </div> */}
               {/* <div className="section2-right-container">
                 <div className="section2-bg-image">

@@ -52,7 +52,7 @@ const NavItems = [
 
 const LabelText = ({ label }) => {
   return (
-    <div style={{
+    <div  style={{
       backgroundColor: COLORS.yellow,
       paddingLeft: 15,
       paddingRight: 15,
@@ -136,34 +136,81 @@ const AppDevelopmentPage = () => {
     const target2 = section2TextAnimate.current;
     const target3 = section2SubTextAnimate.current;
     const target4 = section3TitleTextRef.current;
-    const target5 = section3SubTitleTextRef.current;
-    if (!target) {
-      console.error("Unable to find the target element.");
-      return;
-    }
-    // Initialize SplitType
-    const typeSplit = new SplitType([target, target2, target3, target4, target5], {
+    const target5 = section3SubTitleTextRef.current;   
+
+    // Initialize SplitType for each target element
+    const typeSplit1 = new SplitType(target, {
       types: 'lines, words, chars',
       tagName: 'span'
     });
 
-    // GSAP animation using ScrollTrigger
-    gsap.from('.word', {
-      y: '200%',
+    const typeSplit2 = new SplitType([target2, target3], {
+      types: 'lines, words, chars',
+      tagName: 'span'
+    });
+
+    const typeSplit4 = new SplitType([target4, target5], {
+      types: 'lines, words, chars',
+      tagName: 'span'
+    });
+
+    // GSAP animation using ScrollTrigger for each target element
+    gsap.from(target.querySelectorAll('.word'), {
+      y: '500%',
       opacity: 0,
       rotationZ: '10',
       duration: 0.5,
       ease: 'power1.in',
       stagger: 0.1,
       scrollTrigger: {
-        trigger: [target, target2, target3],
+        trigger: target,
         start: 'top center',
+        markers: true,
+        once: true,
       },
       onComplete: () => {
         // Set opacity to 1 after animation is complete
-        gsap.set('.word', { opacity: 1 });
+        gsap.set(target.querySelectorAll('.word'), { opacity: 1 });
       }
     });
+
+    gsap.from([target2.querySelectorAll('.word'), target3.querySelectorAll('.word')], {
+      y: '100%',
+      opacity: 0,
+      rotationZ: '10',
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: [target2, target3],
+        start: 'top center',
+        markers: true,
+        once: true,
+      },
+      onComplete: () => {
+        gsap.set([target2.querySelectorAll('.word'), target3.querySelectorAll('.word')], { opacity: 1 });
+       
+      }
+    });
+
+    gsap.from([target4.querySelectorAll('.word'), target5.querySelectorAll('.word')], {
+      y: '100%',
+      opacity: 0,
+      rotationZ: '10',
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: [target4, target5],
+        start: 'top center',
+        markers: true,
+        once: true,
+      },
+      onComplete: () => {
+        gsap.set([target4.querySelectorAll('.word'), target5.querySelectorAll('.word')], { opacity: 1 });
+      }
+    });
+    
   }, []);
 
   return (
@@ -197,12 +244,12 @@ const AppDevelopmentPage = () => {
                   <HeadingS className="mb-16" ref={section2TextAnimate} >If you're facing a technology challenge and don't have the in-house resources to solve it, QuantmFy is here to help.</HeadingS>
                   <BodyS className="mb-16" ref={section2SubTextAnimate}>Our custom software development services help companies of every size realize a range of impactful business outcomes like</BodyS>
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <LabelText label={'Drive more revenue'} />
-                    <LabelText label={'Reduce operational costs'} />
-                    <LabelText label={'Increase productivity'} />
-                    <LabelText label={'Improve information flows'} />
-                    <LabelText label={'Streamline business operations'} />
-                    <LabelText label={'Make data more accessible'} />
+                    <LabelText  label={'Drive more revenue'} />
+                    <LabelText  label={'Reduce operational costs'} />
+                    <LabelText  label={'Increase productivity'} />
+                    <LabelText  label={'Improve information flows'} />
+                    <LabelText  label={'Streamline business operations'} />
+                    <LabelText  label={'Make data more accessible'} />
                   </div>
                 </div>
                 <div>
@@ -261,72 +308,6 @@ const AppDevelopmentPage = () => {
         </section>
       </div>
     </AppDevelopmentWrapper>
-    // <Box style={{background: 'linear-gradient(180deg, #9186C9 0%, #DCE3EC 61.46%)'}}>
-    //   <Container size={1400} style={{minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-    //     <div className="section1-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>
-    //       <HeaderPill label='Custom Application Development' />
-    //       <HeroTitle ref={animateRef}><span>Overcome</span> <span>your</span> <span>business</span> <span>challenges</span> <span>with</span> <span>reliable</span>, <span>custom</span> <span>software</span> <span>applications</span></HeroTitle>
-    //     </div>
-    //     <div style={{ marginTop: 40 }}>
-    //       <object data={AppDev} height={600} width={600} className="section1-image" />
-    //     </div>
-    //   </Container>
-    //   <Container size={1400} style={{minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-    //     <div className="section2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-    //       <div style={{maxWidth: '50%'}}>
-    //         <HeadingS>If you're facing a technology challenge and don't have the in-house resources to solve it, QuantmFy is here to help.</HeadingS>
-    //         <BodyS style={{marginTop: 16}}>Our custom software development services help companies of every size realize a range of impactful business outcomes like</BodyS>
-    //         <div style={{ display: 'flex', flexDirection: 'column', marginTop: 16, gap: 16 }}>
-    //           <LabelText label={'Drive more revenue'} />
-    //           <LabelText label={'Reduce operational costs'} />
-    //           <LabelText label={'Increase productivity'} />
-    //           <LabelText label={'Improve information flows'} />
-    //           <LabelText label={'Streamline business operations'} />
-    //           <LabelText label={'Make data more accessible'} />
-    //         </div>
-    //       </div>
-    //       <div style={{maxWidth: '50%'}}>
-    //         <img src={ChallengeSvg} className="section2-image" width={600} />
-    //       </div>
-    //     </div>
-    //   </Container>
-    //   <Box style={{background: '#669085'}}>
-    //     <Container size={1400} style={{height: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-    //       {/* <div className="section3"> */}
-    //         <div className="section3-inner-container">
-    //           <div style={{maxWidth: '60%', margin: 'auto'}}>
-    //             <HeadingS className="section3-heading" style={{ color: COLORS.white, textAlign: 'center' }}>Experienced Application Strategists and Developers</HeadingS>
-    //             <BodyS className="section3-heading" style={{ marginTop: 16, color: COLORS.white, textAlign: 'center' }}>Our experienced application development teams and strategists are committed to helping you overcome your unique business challenges in an efficient and cost-effective manner.</BodyS>
-    //           </div>
-    //           <div className="section3-image-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 50}}>
-    //             <ImageWrapper image={Strategy} title='Strategy' />
-    //             <ImageWrapper image={Idea} title='Idea validation' />
-    //             <ImageWrapper image={CustomAppDev} title='custom application' />
-    //             <ImageWrapper image={CustomCloud} title='Custom software ' />
-    //             <ImageWrapper image={DesktopWeb} title='Web and mobile' />
-    //           </div>
-    //         </div>
-    //       {/* </div> */}
-    //     </Container>
-    //   </Box>
-    //   <Box>
-    //     <Container size={1400} style={{minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-    //       <section id="solution-section" ref={sectionRefs[3]}>
-    //         <div className="section4">
-    //           <div className="section4-container">
-    //             <div className="section4-left-container">
-    //               <Label style={{ marginBottom: 16 }}>Our Solutions</Label>
-    //               <HeadingS style={{ marginBottom: 16 }}>Industry-specific platforms and portals to modernize delivery of services to customers and open new markets.</HeadingS>
-    //             </div>
-    //             <div>
-    //               <img src={Industryspecific} className="section4-image" />
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </section>
-    //     </Container>
-    //   </Box>
-    // </Box>
   );
 };
 

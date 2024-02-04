@@ -14,6 +14,8 @@ import TechStrategy from '../../assets/TechnoConsulting/Technology-Strategy.svg'
 import { BodyS, BodySbold, HeadingM, HeadingS, HeadingXs, Label } from "../../constants/TypographyStyles";
 import { TechnoConsultingWrapper } from "./Technoconsulting.styles";
 import HeaderPill from "../../components/HeaderPill";
+import SplitType from 'split-type';
+
 
 
 const NavItems = [
@@ -39,21 +41,67 @@ const NavItems = [
 const TechnologyConsultantPage = () => {
   const [activeItem, setActiveItem] = useState(1);
   const titleTextRef = useRef(null);
+  const section2TextAnimate = useRef(null);
+  const section2SubHeadingAnimate = useRef(null);
+  const section2SubTextAnimate =useRef(null);
+  const section3TitleTextRef = useRef(null);
+  const section3SubTitleTextRef = useRef(null);
   const sectionRefs = NavItems.reduce((acc, item) => {
     acc[item.id] = useRef(null);
     return acc;
   }, {});
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.from(titleTextRef.current.children, {
-      duration: 1,
+    const target = titleTextRef.current;
+    const target2 = section2TextAnimate.current;
+    const target3 = section2SubHeadingAnimate.current;
+    const target4 = section2SubTextAnimate.current;
+    
+    const typeSplit9 = new SplitType(target, {
+      types: 'lines, words, chars',
+      tagName: 'span'
+    });
+    const typeSplit11 = new SplitType([target2, target3,target4], {
+      types: 'lines, words, chars',
+      tagName: 'span'
+    });
+
+    gsap.from(target.querySelectorAll('.word'), {
+      y: '500%',
       opacity: 0,
-      y: 50,
-      stagger: 0.2,
-      ease: "power4.out",
-      delay: 0.2
-    })
+      rotationZ: '10',
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: target,
+        start: 'top center',
+        markers: true,
+        once: true,
+      },
+      onComplete: () => {
+        // Set opacity to 1 after animation is complete
+        gsap.set(target.querySelectorAll('.word'), { opacity: 1 });
+      }
+    });
+    gsap.from([target2.querySelectorAll('.word'), target3.querySelectorAll('.word'), target4.querySelectorAll('.word')], {
+      y: '100%',
+      opacity: 0,
+      rotationZ: '10',
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: [target2, target3],
+        start: 'top center',
+        markers: true,
+        once: true,
+      },
+      onComplete: () => {
+        gsap.set([target2.querySelectorAll('.word'), target3.querySelectorAll('.word')], { opacity: 1 });
+       
+      }
+    });
   }, [])
 
   const handleItemClick = (itemId, sectionId) => {
@@ -130,15 +178,15 @@ const TechnologyConsultantPage = () => {
           <div className="section2">
             <div className="section2-inner-container">
               <div className="section2-left-container">
-                <HeadingS className="section2-title">We understand the importance of developing a technology strategy that aligns with your business goals and delivers tangible value to your organization.</HeadingS>
+                <HeadingS ref={section2TextAnimate} className="section2-title">We understand the importance of developing a technology strategy that aligns with your business goals and delivers tangible value to your organization.</HeadingS>
               </div>
               <div className="section2-right-container">
                 <div className="section2-bg-image">
                   <img src={ExperiencedConsultant} />
                 </div>
                 <div className="section2-text-container">
-                  <HeadingXs className="mb-16">Experienced consultants</HeadingXs>
-                  <BodyS>Our experienced, senior-level technology consultants provide strategic advisory services to help your leadership teams define long-term technology strategies and solutions that propel your business forward.</BodyS>
+                  <HeadingXs ref={section2SubHeadingAnimate} className="mb-16">Experienced consultants</HeadingXs>
+                  <BodyS ref={section2SubTextAnimate}>Our experienced, senior-level technology consultants providestrategic advisory services to help your leadership teams define long-term technology strategies& solutions that propel your business forward.</BodyS>
                 </div>
               </div>
             </div>
